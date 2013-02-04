@@ -1,0 +1,117 @@
+<%= form_for [@entidade_equipamento, @questionario_basico_entidade], :html => { :class => 'form-horizontal' } do |f| %>
+<div class="control-group">
+  <%= f.label :inicio_atividades, 'Início das Atividades', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :inicio_atividades, :class => 'jquery-ui-date' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :principais_atividades, 'Resumo das Atividades', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_area :principais_atividades, :class => 'span6', :rows => 8 %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :acoes_desenvolvidas, 'Ações Desenvolvidas', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.fields_for :acoes_desenvolvidas, @questionario_basico_entidade.acoes_desenvolvidas do |n| %>
+    <table>
+      <tr>
+        <td><%= n.check_box 'Cinema', { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Cinema'] == "1" } %> Cinema </td>
+        <td><%= n.check_box 'Teatro', { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Teatro'] == "1" } %> Teatro </td>
+        <td><%= n.check_box 'Dança',  { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Dança'] == "1" } %> Dança </td>
+        <td><%= n.check_box 'Música', { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Música'] == "1" } %> Música </td>
+      </tr>
+      <tr>
+        <td><%= n.check_box 'Artes Plásticas', { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Artes Plásticas'] == "1" } %> Artes Plásticas </td>
+        <td><%= n.check_box 'Artesanato',  { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Artesanato'] == "1" } %> Artesanato </td>
+        <td><%= n.check_box 'Circo',       { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Circo'] == "1" } %> Circo </td>
+        <td><%= n.check_box 'Fotografia',  { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Fotografia'] == "1" } %> Fotografia </td>
+      </tr>
+      <tr>
+        <td><%= n.check_box 'Audiovisual', { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Audiovisual'] == "1" } %> Audiovisual </td>
+        <td><%= n.check_box 'Capoeira',    { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Capoeira'] == "1" } %> Capoeira </td>
+        <td><%= n.check_box 'Inclusão Digital', { :checked => @questionario_basico_entidade.acoes_desenvolvidas['Inclusão Digital'] == "1" } %> Inclusão Digital </td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :frequencia_acoes, 'Frequência das Ações', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.fields_for :frequencia_acoes, @questionario_basico_entidade.frequencia_acoes do |n| %>
+    <table>
+      <tr>
+        <td><%= n.check_box 'Diário', { :checked => @questionario_basico_entidade.frequencia_acoes['Diário'] == "1" } %> Diário </td>
+        <td><%= n.check_box 'Semanal', { :checked => @questionario_basico_entidade.frequencia_acoes['Semanal'] == "1" } %> Semanal </td>
+        <td><%= n.check_box 'Mensal', { :checked => @questionario_basico_entidade.frequencia_acoes['Mensal'] == "1" } %> Mensal </td>
+        <td><%= n.check_box 'Anual', { :checked => @questionario_basico_entidade.frequencia_acoes['Anual'] == "1" } %> Anual </td>
+        <td><%= n.check_box 'Outros', { :checked => @questionario_basico_entidade.frequencia_acoes['Outros'] == "1" } %> Outros </td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :produz_eventos, 'Produz Eventos?', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :produz_eventos, 'Sim' => true, 'Não' => false %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :frequencia_producao_eventos, 'Produz com que Frequência', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.fields_for :frequencia_producao_eventos, @questionario_basico_entidade.frequencia_producao_eventos do |n| %>
+    <table>
+      <tr>
+        <td><%= n.check_box 'Diário', { :checked => @questionario_basico_entidade.frequencia_producao_eventos['Diário'] == "1" } %> Diário </td>
+        <td><%= n.check_box 'Semanal', { :checked => @questionario_basico_entidade.frequencia_producao_eventos['Semanal'] == "1" } %> Semanal </td>
+        <td><%= n.check_box 'Mensal', { :checked => @questionario_basico_entidade.frequencia_producao_eventos['Mensal'] == "1" } %> Mensal </td>
+        <td><%= n.check_box 'Anual', { :checked => @questionario_basico_entidade.frequencia_producao_eventos['Anual'] == "1" } %> Anual </td>
+        <td><%= n.check_box 'Outros', { :checked => @questionario_basico_entidade.frequencia_producao_eventos['Outros'] == "1" } %> Outros </td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :participa_eventos, 'Participa de Eventos?', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :participa_eventos, 'Sim' => true, 'Não' => false %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :frequencia_participacao_eventos, 'Participa com que Frequência', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.fields_for :frequencia_participacao_eventos, @questionario_basico_entidade.frequencia_participacao_eventos do |n| %>
+    <table>
+      <tr>
+        <td><%= n.check_box 'Diário', { :checked => @questionario_basico_entidade.frequencia_participacao_eventos['Diário'] == "1" } %> Diário </td>
+        <td><%= n.check_box 'Semanal', { :checked => @questionario_basico_entidade.frequencia_participacao_eventos['Semanal'] == "1" } %> Semanal </td>
+        <td><%= n.check_box 'Mensal', { :checked => @questionario_basico_entidade.frequencia_participacao_eventos['Mensal'] == "1" } %> Mensal </td>
+        <td><%= n.check_box 'Anual', { :checked => @questionario_basico_entidade.frequencia_participacao_eventos['Anual'] == "1" } %> Anual </td>
+        <td><%= n.check_box 'Outros', { :checked => @questionario_basico_entidade.frequencia_participacao_eventos['Outros'] == "1" } %> Outros </td>
+      </tr>
+    </table>
+    <% end %>
+  </div>
+</div>
+
+<%= f.hidden_field :entidade_equipamento_id, :value => @entidade_equipamento.id %>
+
+<% if params[:action] == 'new' %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+<% end %>
+
+<div class="form-actions">
+  <%= f.submit 'Responder Questionário', :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), entidade_equipamento_questionario_basico_entidades_path, :class => 'btn' %>
+</div>
+<% end %>

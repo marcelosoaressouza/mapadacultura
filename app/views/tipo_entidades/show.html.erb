@@ -1,0 +1,48 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", tipo_entidades_path %>
+  </li>
+  <li>
+    <%= link_to "Cadastrar", new_tipo_entidade_path %>
+  </li>
+  <li class="active">
+    <%= link_to @tipo_entidade.nome %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <dl class="dl-horizontal">
+      <dt>
+        <strong>Nome:</strong>
+      </dt>
+      <dd>
+        <%= @tipo_entidade.nome %>&nbsp;
+      </dd>
+      <dt>
+        <strong>Descrição:</strong>
+      </dt>
+      <dd>
+        <%= @tipo_entidade.descricao %>&nbsp;
+      </dd>
+      <dt>
+        <strong>Imagem:</strong>
+      </dt>
+      <dd>
+        <%= link_to (image_tag @tipo_entidade.imagem.url(:thumb)), @tipo_entidade.imagem.url %>&nbsp;
+      </dd>
+    </dl>
+
+    <% if user_signed_in? %>
+    <% if current_user.admin? %>
+    <div class="form-actions">
+      <%= link_to t('.back', :default => t("helpers.links.back")), tipo_entidades_path, :class => 'btn'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_tipo_entidade_path(@tipo_entidade), :class => 'btn' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), tipo_entidade_path(@tipo_entidade), :method => 'delete',
+      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) },
+      :class => 'btn btn-danger' %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h3><%= @entidade_equipamento.nome %></h3>
+
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="<%= entidade_equipamento_path(@entidade_equipamento) %>">Dados Gerais</a>
+    </li>
+    <li>
+      <%= link_to "Apresentação (Vídeo)", apresenta_entidade_equipamentos_path(@entidade_equipamento) %>
+    </li>
+    <li>
+      <%= link_to "Fotos", entidade_equipamento_fotos_path(@entidade_equipamento) %>
+    </li>
+    <li class="active">
+      <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@entidade_equipamento) %>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="active tab-pane" id="list">
+      <%= render :partial => 'form' %>
+    </div>
+  </div>

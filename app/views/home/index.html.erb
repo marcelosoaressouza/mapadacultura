@@ -1,0 +1,10 @@
+  <% if @map %>
+    <%= gmaps("map_options" =>  { :language => 'pt-br', :hl => 'pt-br', :region => 'pt-br',
+                                  :center_latitude => '-15.77835833463309',
+                                  :center_longitude => '-47.88219451904297',
+                                  :zoom => 10, :auto_zoom => true,
+                                  :detect_location => false,
+                                  :center_on_user => false,
+                                  :auto_adjust => true
+                                 }) %> 
+  <% end %>

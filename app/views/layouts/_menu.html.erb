@@ -1,0 +1,53 @@
+<ul class="nav">
+  <li>
+    <li class="dropdown">
+      <a id="entidade-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Entidades e Equipamentos Culturais<b class="caret"></b> </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="entidade-drop">
+        <li>
+        <li>
+          <a tabindex="-1" href="/entidade_equipamentos/">Listar</a>
+        </li>
+        <li>
+          <a tabindex="-1" href="/entidade_equipamentos/new">Adicionar</a>
+        </li>
+      </ul>
+    </li>
+  </li>
+
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <li>
+        <li class="dropdown">
+          <a id="configurar-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> Configurar<b class="caret"></b> </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="configurar-drop">
+          <li>
+          <li>
+            <a tabindex="-1" href="/tipos">Tipos</a>
+          </li>
+          <li>
+            <a tabindex="-1" href="/tipo_equipamentos">Tipos Equipamento</a>
+          </li>
+          <li>
+            <a tabindex="-1" href="/tipo_entidades">Tipos de Entidades Culturais</a>
+          </li>
+          <li>
+            <a tabindex="-1" href="/atividades">Atividades</a>
+          </li>
+          <li>
+            <a tabindex="-1" href="/users">Usuários</a>
+          </li>
+        </ul>
+        </li>
+      </li>
+    <% end %>
+
+    <li class="login" id="logout">
+      <%= link_to(t("Logout") + " (" + current_user.firstname + ") ", destroy_user_session_path, :method => :delete) %>
+    </li>
+
+  <% else %>
+    <li class="login" id="login">
+      <%= link_to(t("Login"), new_user_session_path) %>
+    </li>
+  <% end %>
+</ul>

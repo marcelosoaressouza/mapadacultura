@@ -1,0 +1,79 @@
+<div class="span3">
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+
+      <div class="accordion" id="accordion2">
+
+        <!-- Atividade -->
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Atividades">
+            <center>
+              <b>Atividades Culturais</b>
+            </center> </a>
+          </div>
+
+          <div id="Atividades" class="accordion-body collapse in">
+            <div class="accordion-inner">
+              <% @atividades.each do |atividade| %>
+              <li class="tipo">
+                <%= check_box(atividade.nome, atividade.id, :class => 'checkbox-atividade', :onclick => 'CarregarAtividades(this.id)' ) %>
+                <%= truncate(atividade.nome, :length => 24, :omission => '...') %>
+                <%= image_tag atividade.imagem.url(:thumb), :width => '24', :height => '24', :style => 'float:right', :alt => atividade.nome, :title => atividade.nome %>
+              </li>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <!-- TipoEntidades -->
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#TipoEntidades">
+            <center>
+              <b>Tipo de Entidades Culturais</b>
+            </center> </a>
+          </div>
+
+          <div id="TipoEntidades" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <% @tipo_entidades.each do |tipo_entidade| %>
+              <li class="tipo">
+                <%= check_box(tipo_entidade.nome, tipo_entidade.id, :class => 'checkbox-tipo', :onclick => 'CarregarTipoEntidades(this.id)' ) %>
+                <%= truncate(tipo_entidade.nome, :length => 24, :omission => '...') %>
+                <%= image_tag tipo_entidade.imagem.url(:thumb), :width => '24', :height => '24', :style => 'float:right', :alt => tipo_entidade.nome, :title => tipo_entidade.nome %>
+              </li>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <!-- TipoEquipamentos -->
+
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#TipoEquipamentos">
+            <center>
+              <b>Equipamentos Culturais</b>
+            </center> </a>
+          </div>
+
+          <div id="TipoEquipamentos" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <% @tipo_equipamentos.each do |tipo_equipamento| %>
+              <li class="tipo">
+                <%= check_box(tipo_equipamento.nome, tipo_equipamento.id, :class => 'checkbox-tipo', :onclick => 'CarregarTipoEquipamentos(this.id)' ) %>
+                <%= truncate(tipo_equipamento.nome, :length => 24, :omission => '...') %>
+                <%= image_tag tipo_equipamento.imagem.url(:thumb), :width => '24', :height => '24', :style => 'float:right', :alt => tipo_equipamento.nome, :title => tipo_equipamento.nome %>
+              </li>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ul>
+  </div>
+</div>

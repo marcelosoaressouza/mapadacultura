@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h3><%= @entidade_equipamento.nome %></h3>
+
+  <ul class="nav nav-tabs">
+    <li>
+      <%= link_to "Dados Gerais", entidade_equipamento_path(@entidade_equipamento) %>
+    </li>
+    <li class="active">
+      <%= link_to "Apresentação (Vídeo)", apresenta_entidade_equipamentos_path(@entidade_equipamento) %>
+    </li>
+    <li>
+      <%= link_to "Fotos", entidade_equipamento_fotos_path(@entidade_equipamento) %>
+    </li>
+    <% if @entidade_equipamento.tipo_id == 1 %>
+      <li>
+        <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@entidade_equipamento) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <div class="active tab-pane">
+      <div class="info">
+        <div class="info-details">
+          <%= '<h3>Nenhum Vídeo Encontrado</h3>'.html_safe if @entidade_equipamento.apresenta.size <= 1 %>
+          <%= auto_html(@entidade_equipamento.apresenta) { youtube } %>
+        </div>
+
+        <div class="info-image">
+          <%= image_tag @entidade_equipamento.imagem.url(:thumb) %>
+        </div>
+      </div>
+    </div>
+  </div>

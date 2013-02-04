@@ -1,0 +1,86 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", entidade_equipamentos_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Entidades", entidades_entidade_equipamentos_path %>
+  </li>
+  <li>
+    <%= link_to "Equipamentos", equipamentos_entidade_equipamentos_path %>
+  </li>
+  <li>
+    <% if user_signed_in? %>
+      <%= link_to "Avaliar", evaluate_entidade_equipamentos_path if current_user.admin?%>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to "Cadastrar", new_entidade_equipamento_path %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <% if @entidade_equipamentos.empty? %>
+    <center>
+      <h3> Nenhum Registro Encontrado
+      <br/>
+      <%= link_to "Adicionar nova Entidade Cultural?", new_entidade_equipamento_path %> </h3>
+    </center>
+    <% else %>
+
+    <div class="search">
+      <%= form_tag search_entidade_equipamentos_path, :method => :get do %>
+      <p>
+        <%= text_field_tag :query, params[:query], :class => 'span8' %>
+        <%= submit_tag t('Search'), :style => "float: right;", :class => 'btn btn-primary' %>
+      </p>
+      <% end %>
+    </div>
+
+    <%= paginate @entidade_equipamentos, :window => 8 %>
+
+    <br/>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Estado</th>
+          <th>Tipo</th>
+          <th>Atividade</th>
+          <th>Fotos</th>
+          <th><%= 'Publicado' if user_signed_in? %></th>
+          <th><%= t '.actions', :default => t("helpers.actions") if user_signed_in? %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @entidade_equipamentos.each do |entidade_equipamento| %>
+        <tr>
+          <td><%= link_to entidade_equipamento.id, entidade_equipamento_path(entidade_equipamento)   %></td>
+          <td><%= link_to entidade_equipamento.nome, entidade_equipamento_path(entidade_equipamento) %></td>
+          <td><%= entidade_equipamento.estado %></td>    
+          <td><%= image_tag entidade_equipamento.tipo_entidade.imagem.url, :title => entidade_equipamento.tipo_entidade.nome %></td>
+          <td><%= image_tag entidade_equipamento.atividade.imagem.url, :title => entidade_equipamento.atividade.nome %></td>
+          <td><%= entidade_equipamento.fotos.size %></td>
+          <td><strong><%= I18n.t(entidade_equipamento.publicar.to_s) if user_signed_in? %></strong></td>
+          <% if user_signed_in? %>
+            <% if  (current_user.id == entidade_equipamento.user.id) || (current_user.admin?) %>
+              <td>
+                <% if (current_user.admin? && entidade_equipamento.publicar == false) %>
+                  <%= link_to t('.publish', :default => t("helpers.links.publish")), publish_entidade_equipamentos_path(entidade_equipamento), :class => 'btn btn-mini btn-primary' %>
+                <% end %>
+
+                <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_path(entidade_equipamento), :class => 'btn btn-mini' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")), entidade_equipamento_path(entidade_equipamento), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) }, :class => 'btn btn-mini btn-danger' %>
+              </td>
+            <% end %>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% end %>
+  </div>
+</div>

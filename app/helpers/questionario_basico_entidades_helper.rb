@@ -1,0 +1,2 @@
+module QuestionarioBasicoEntidadesHelper
+end

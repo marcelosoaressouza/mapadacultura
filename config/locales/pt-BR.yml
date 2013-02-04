@@ -1,0 +1,370 @@
+pt-BR:
+  'Permission Denied': 'Permissão Negada'
+  Login: Logar
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    - 
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y'
+      long: ! '%d de %B de %Y'
+      short: ! '%d de %B'
+    month_names:
+    - 
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors:
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      confirmation: não está de acordo com a confirmação
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já está em uso
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  helpers:
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+#      default: ! '%A, %d de %B de %Y, %H:%Mh'
+      default: ! '%d de %B de %Y'
+      long: ! '%A, %d de %B de %Y, %H:%Mh'
+      short: ! '%d/%m, %H:%M h'
+    pm: ''
+
+# jCMS
+  "Login": "Logar"
+  "Logout": "Deslogar"
+  "Sign in": "Entrar"
+  "Sign up": "Cadastre-se"
+  "Password": "Senha"
+  "Search": "Procurar"
+  "Last Update": "Última Atualização"
+  "Published by": "Publicado por"
+  "in": "em"
+  "licensed under": "licenciado sobre"
+  "Licensed under": "Licenciado sobre"
+  "Didn't receive confirmation instructions?": "Enviar instruções de confirmação?"
+  "Resend confirmation instructions": "Enviar Instruções"
+  "Remember Me": "Lembre-se de mim"
+  "Forgot your password?": "Esqueceu sua senha?"
+  "Send me reset password instructions": "Enviar instruções de recuperação"
+  "Registration": "Cadastrar"
+  false_value: No
+  true_value: Yes
+  "true": "Sim"
+  "false": "Não"
+  Yes: "Sim"
+  No: "Não"
+  "All": "Todos"
+  "Only my": "Apenas os meus"
+  "Submitting": "Submetendo..."
+  Home: "Início"
+  "Owner(s)": "Dono(s)"
+  helpers:
+    actions: Opções
+    links:
+      new: Novo
+      edit: Editar
+      destroy: Apagar
+      cancel: Cancelar
+      back: Voltar
+      publish: Publicar
+    submit:
+      create: 'Criar %{model}'
+      update: 'Atualizar %{model}'
+      submit: 'Salvar %{model}'
+    select:
+      prompt: 'Selecione'
+    label:
+      user:
+        cpf: CPF
+        firstname: 'Primeiro Nome'
+        lastname: 'Último Nome'
+        email: 'E-Mail'
+        password: 'Senha'
+        status: 'Situação'
+        password_confirm: 'Confirme a Senha'
+      image:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
+        image: "Imagem"
+  activerecord:
+    errors:
+      messages:
+        existence: 'não existe'
+        record_invalid: 'registro inválido'
+    models:
+      user: 'Usuário'
+      license: 'Licença'
+      text: 'Texto'
+    attributes: 
+      user: 
+        cpf: CPF
+        firstname: 'Primeiro Nome'
+        lastname: 'Último Nome'
+        email: 'E-Mail'
+        password: 'Senha'
+        status: 'Situação'
+      license:
+        name: 'Nome'
+        description: 'Descrição'
+        url: 'URL'
+      text:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
+      image:
+        title: 'Título'
+        abstract: 'Resumo'
+        body: 'Corpo'
+        publish: 'Publicar'
+        firstpage: 'Visível na primeira página'
+        license: 'Licença'
+
+  'Successfully created': 'Foi criado com sucesso' 
+  'Successfully updated': 'Foi atualizado com sucesso'
+  'Successfully deleted': 'Foi apagado com sucesso'
+  'Are you sure?': 'Tem certeza que deseja excluir?'
+  'No Items Registered': 'Nenhum item registrado'
+  Error: 'Erro'
+  Delete: 'Apagar'
+  Edit: 'Editar'
+  List: 'Listar'
+  Create: 'Criar'
+
+# User
+  cpf: CPF
+  firstname: 'Primeiro Nome'
+  lastname: 'Último Nome'
+  email: 'E-Mail'
+  password: 'Senha'
+  status: 'Situação'
+  User: 'Usuário'
+  Users: 'Usuários'
+
+# license
+  name: 'Nome'
+  description: 'Descrição'
+  url: 'URL'
+  License: 'Licença'
+  Licenses: 'Licenças'
+
+# text
+  Title: 'Título'
+  title: 'Título'
+  abstract: 'resumo'
+  Abstract: 'Resumo'
+  body: 'Corpo'
+  publish: 'Publicar'
+  firstpage: 'Visível na primeira página'
+  license: 'Licença'
+  text: 'Texto'
+  Text: 'Texto'
+  texts: 'Textos'
+  Texts: 'Textos'
+  image: 'Imagem'
+  images: 'Imagem'
+  Image: 'Imagem'
+  Images: 'Imagens'
+  and: 'e'
+  My: 'Contribuições'
+  'Latest News': 'Últimas Novidades'
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próximo &rsaquo;"
+      truncate: "..."
+  'has already been used': 'já foi usado'
+  'Read More': 'Leia mais'
+  'Permission Denied': 'Permissão Negada'
+  'Type': 'Tipo'
+  'type': 'tipo'
+  'Comment': 'Comentário'
+  'comment': 'comentário'
+  'Add Comment': 'Adicionar um comentário'
+  'Commented by': 'Comentando por'
+  'This register has dependents': 'Este registro tem dependentes'
+  opinio:
+    messages:
+      no_comments_found: 'Nenhum comentário encontrado'
+      must_be_logged_in_to_comment: 'É preciso esta logado para comentar'

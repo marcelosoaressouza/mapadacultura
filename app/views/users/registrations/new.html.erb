@@ -1,0 +1,62 @@
+<ul class="nav nav-tabs">
+  <li><%= link_to "Logar", new_session_path(resource_name) %></li>
+  <li class="active"><%= link_to "Cadastrar", new_registration_path(resource_name) %></li>
+  <li><%= link_to "Esqueceu a Senha?", new_password_path(resource_name) %></li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="control-group">
+      <%= f.label :cpf, "CPF", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :cpf, :autofocus => true, :size => '16', :maxlength => '16' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :firstname, "Primeiro Nome", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :firstname, :size => '32', :maxlength => '254' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Sobrenome", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :lastname, :class => 'text_field', :size => '64', :maxlength => '254' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "E-Mail", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :email, :class => 'span5', :size => '64', :maxlength => '254' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Senha", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password, :class => 'span3', :size => '32', :maxlength => '254' %>
+        <div class="tip">Minímo de 8 caracteres</div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Confirme a Senha", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :class => 'span3', :size => '32', :maxlength => '254' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div><%= f.submit "Cadastrar", :class => 'btn btn-primary' %></div>
+    </div>
+
+    <% end %>
+  </div>
+</div>
+

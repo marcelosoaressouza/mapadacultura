@@ -1,0 +1,41 @@
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="control-group">
+  <%= f.label :email, 'E-Mail', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :email, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :firstname, 'Primeiro Nome', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :firstname, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :lastname, 'Sobrenome', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :lastname, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :cpf, 'CPF', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :cpf, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :admin, 'Administrador?', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :admin, 'Sim' => true, 'Não' => false %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn' %>
+</div>
+<% end %>

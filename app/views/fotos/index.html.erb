@@ -1,0 +1,78 @@
+<div class="page-header">
+  <h3><%= @dados.nome %></h3>
+
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="<%= entidade_equipamento_path(@dados) %>">Dados Gerais</a>
+    </li>
+    <li>
+      <%= link_to "Apresentação (Vídeo)", apresenta_entidade_equipamentos_path(@dados) %>
+    </li>
+    <li class="active">
+      <%= link_to "Fotos", entidade_equipamento_fotos_path(@dados) %>
+    </li>
+    <% if @dados.tipo_id == 1 %>
+      <li>
+        <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@dados) %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <div class="active tab-pane" id="list">
+
+      <% if user_signed_in? %>
+      <% if (current_user.id == @dados.user_id || current_user.admin?) %>
+      <%= link_to t('.new', :default => t("helpers.links.new")), new_entidade_equipamento_foto_path, :class => 'btn btn-primary' if ! @fotos.empty?%>
+      <% end %>
+      <% end %>
+
+      <% if @fotos.empty? %>
+      <center>
+        <br/>
+        <h3> Nenhuma Foto encontrada
+        <br/>
+        <% if user_signed_in? %>
+          <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>
+            <%= link_to "Adicionar nova Foto?", new_entidade_equipamento_foto_path if user_signed_in?%> </h3>
+          <% end %>
+        <% end %>
+        <br/>
+        </br>
+      </center>
+      <% else %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <% if user_signed_in? %>
+            <% if (current_user.id == @dados.user_id || current_user.admin?) %>
+            <th><%= t '.actions', :default => t("helpers.actions") %></th>
+            <% end %>
+            <% end %>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @fotos.each do |foto| %>
+          <tr>
+            <td><%= link_to (image_tag foto.foto.url(:thumb)), foto.foto.url, :id => "image-box" %></td>
+            <td><b><%= foto.nome %></b></td>
+            <td><%= foto.descricao %></td>
+            <% if user_signed_in? %>
+            <% if (current_user.id == @dados.user_id || current_user.admin?) %>
+            <td> <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_foto_path(@dados, foto), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), entidade_equipamento_foto_path(@dados, foto), :method => :delete,
+            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você esta certo?')) },
+            :class => 'btn btn-mini btn-danger' %> </td>
+            <% end %>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>

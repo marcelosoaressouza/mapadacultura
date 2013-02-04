@@ -1,0 +1,14 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", tipo_entidades_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Cadastrar", new_tipo_entidade_path %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <%= render :partial => 'form' %>
+  </div>
+</div>

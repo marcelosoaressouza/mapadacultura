@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", tipos_path %>
+  </li>
+  <li>
+    <%= link_to "Cadastrar", new_tipo_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Editando " + @tipo.nome %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <%= render :partial => 'form' %>
+  </div>
+</div>

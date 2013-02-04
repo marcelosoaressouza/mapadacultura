@@ -1,0 +1,98 @@
+<div class="page-header">
+  <h3><%= @entidade_equipamento.nome %></h3>
+
+  <ul class="nav nav-tabs">
+    <li>
+      <a href="<%= entidade_equipamento_path(@entidade_equipamento) %>">Dados Gerais</a>
+    </li>
+    <li>
+      <%= link_to "Apresentação (Vídeo)", apresenta_entidade_equipamentos_path(@entidade_equipamento) %>
+    </li>
+    <li>
+      <%= link_to "Fotos", entidade_equipamento_fotos_path(@entidade_equipamento) %>
+    </li>
+    <li class="active">
+      <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@entidade_equipamento) %>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="active tab-pane" id="list">
+      <% if @questionario_basico_entidades.empty? %>
+      <center>
+        <br/>
+        <h3> Nenhum Questionário Básico desta Entidade Cultura.
+        <br/>
+        <% if user_signed_in? %>
+          <% if  (current_user.id == @entidade_equipamento.user_id) || (current_user.admin?) %>
+            <%= link_to "Responder Questionário?", new_entidade_equipamento_questionario_basico_entidade_path if user_signed_in?%> </h3>
+          <% end %>
+        <% end %>
+        <br/>
+        </br>
+      </center>
+      <% else %>
+
+      <% @questionario_basico_entidades.each do |questionario_basico_entidade_equipamento| %>
+
+      <% if user_signed_in? %>
+        <% if (current_user.id == questionario_basico_entidade_equipamento.user_id || current_user.admin?) %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_questionario_basico_entidade_path(@entidade_equipamento, questionario_basico_entidade_equipamento), :class => 'btn' %>
+        <% end %>
+      <% end %>
+
+      <dl class="dl-horizontal">
+        <dt>
+          <strong>Início das Atividades:</strong>
+        </dt>
+        <dd>
+          <%= questionario_basico_entidade_equipamento.inicio_atividades %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Resumo das Atividades:</strong>
+        </dt>
+        <dd>
+          <%= questionario_basico_entidade_equipamento.principais_atividades %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Ações Desenvolvidas:</strong>
+        </dt>
+        <dd>
+          <%= questionario_basico_entidade_equipamento.acoes_desenvolvidas.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Frequência das Ações:</strong>
+        </dt>
+        <dd>
+          <%= questionario_basico_entidade_equipamento.frequencia_acoes.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Produz Eventos?:</strong>
+        </dt>
+        <dd>
+          <%= I18n.t(questionario_basico_entidade_equipamento.produz_eventos.to_s) %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Produz com que Frequência:</strong>
+        </dt>
+        <dd>
+          <%= questionario_basico_entidade_equipamento.frequencia_producao_eventos.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Participa de Eventos?:</strong>
+        </dt>
+        <dd>
+          <%= I18n.t(questionario_basico_entidade_equipamento.participa_eventos.to_s) %>&nbsp;
+        </dd>
+        <dt>
+          <strong>Participa com que Frequência:</strong>
+        </dt>
+        <dd>
+          <%= questionario_basico_entidade_equipamento.frequencia_participacao_eventos.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>&nbsp;
+        </dd>
+      </dl>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+

@@ -1,0 +1,36 @@
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Todos", users_path %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>E-Mail</th>
+          <th>Nome</th>
+          <th>Último Acesso</th>
+          <th>Administrador?</th>
+          <th><%= t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.id, user_path(user) %></td>
+          <td><%= link_to user.email, user_path(user) %></td>
+          <td><%= user.firstname + ' ' + user.lastname %></td>
+          <td><%= l user.last_sign_in_at %></td>
+          <td><%= I18n.t(user.admin.to_s) %></td>
+          <td> <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_user_path(user), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")), user_path(user), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) }, :class => 'btn btn-mini btn-danger' %> </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<% - model_class = QuestionarioBasicoEntidade -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>
+    <strong>Início das Atividades:</strong>
+  </dt>
+  <dd>
+    <%= @questionario_basico_entidade_equipamento.inicio_atividades %>
+  </dd>
+  <dt>
+    <strong>Resumo das Atividades:</strong>
+  </dt>
+  <dd>
+    <%= @questionario_basico_entidade_equipamento.principais_atividades %>
+  </dd>
+  <dt>
+    <strong>Ações Desenvolvidas:</strong>
+  </dt>
+  <dd>
+    <%= @questionario_basico_entidade_equipamento.acoes_desenvolvidas.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>
+  </dd>
+  <dt>
+    <strong>Frequência das Ações:</strong>
+  </dt>
+  <dd>
+    <%= @questionario_basico_entidade_equipamento.frequencia_acoes.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>
+  </dd>
+  <dt>
+    <strong>Produz Eventos?:</strong>
+  </dt>
+  <dd>
+    <%= I18n.t(@questionario_basico_entidade_equipamento.produz_eventos) %>
+  </dd>
+  <dt>
+    <strong>Produz com que Frequência:</strong>
+  </dt>
+  <dd>
+    <%= @questionario_basico_entidade_equipamento.frequencia_producao_eventos.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>
+  </dd>
+  <dt>
+    <strong>Participa de Eventos?:</strong>
+  </dt>
+  <dd>
+    <%= I18n.t(@questionario_basico_entidade_equipamento.participa_eventos) %>
+  </dd>
+  <dt>
+    <strong>Participa com que Frequência:</strong>
+  </dt>
+  <dd>
+    <%= @questionario_basico_entidade_equipamento.frequencia_participacao_eventos.map { |k, v| (v == '1' ? k : nil) }.join(' ') %>
+  </dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")), entidade_equipamento_questionario_basico_entidade_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_questionario_basico_entidade_equipamento_path(@questionario_basico_entidade_equipamento), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  entidade_equipamento_questionario_basico_entidade_equipamento_path(@questionario_basico_entidade_equipamento),
+  :method => 'delete',
+  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) },
+  :class => 'btn btn-danger' %>
+</div>

@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", users_path %>
+  </li>
+  <li class="active">
+    <%= link_to "Editando " + @user.email %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <%= render :partial => 'form' %>
+  </div>
+</div>
+

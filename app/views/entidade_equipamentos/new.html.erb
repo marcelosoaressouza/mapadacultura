@@ -1,0 +1,23 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", entidade_equipamentos_path %>
+  </li>
+  <li>
+    <%= link_to "Entidades", entidades_entidade_equipamentos_path %>
+  </li>
+  <li>
+    <%= link_to "Equipamentos", equipamentos_entidade_equipamentos_path %>
+  </li>
+  <li>
+    <%= link_to "Avaliar", evaluate_entidade_equipamentos_path if current_user.admin? %>
+  </li>
+  <li class="active">
+    <%= link_to "Cadastrar", new_entidade_equipamento_path %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <%= render :partial => 'form' %>
+  </div>
+</div>

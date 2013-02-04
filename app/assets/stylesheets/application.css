@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.datepicker
+ *= require fancybox
+ *= require_tree .
+ */
+
+.tip {
+  font-size: 11px;
+  font-weight: 900;
+  color: #D30000;
+}
+
+.tipo {
+  font-size: 13px;
+  font-weight: 900;
+  padding: 10px 4px 10px 4px;
+  border: 1px solid #E0E0E0;
+}
+
+.infowindow {
+  min-width: 600px;
+  min-height: 220px;
+  padding: 8px 8px 8px 8px;
+  border: 1px solid #B50000;
+  margin-top: 10px;
+}
+
+.infowindow-titulo {
+  max-width: 440px;
+  float: left;
+}
+
+.infowindow-logo {
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 160px;
+  float: right;
+}
+
+.info {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 90%;
+  min-height: 800px;
+}
+
+.info-details {
+  max-width: 700px;
+  float: left;
+}
+
+.info-image {
+  max-width: 200px;
+  float: right;
+}
+
+.users-shared-links {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+strong {
+  font-size: 14px;
+}
+
+.search {
+  float: right;
+  vertical-align: bottom;
+}

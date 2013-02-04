@@ -1,0 +1,231 @@
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      <% if params[:action] == 'new' %>
+        $('#tipo_equipamento').hide();
+      <% end %>
+
+      <% if params[:action] == 'edit' || params[:action] == 'create' || params[:action] == 'update' %>
+        $('#tipo').hide();
+
+        <% if @entidade_equipamento.tipo_id == 1 %>
+          $('#tipo_equipamento').hide();
+          $('#tipo_entidade').show();
+          $('#atividade').show();
+        <% end %>
+
+        <% if @entidade_equipamento.tipo_id == 2 %>
+          $('#tipo_equipamento').show();
+          $('#tipo_entidade').hide();
+          $('#atividade').hide();
+        <% end %>
+
+      <% end %>
+    });
+  </script>
+<% end %>
+
+<% if @entidade_equipamento.errors.any? %>
+<div class="alert-message alert">
+  <ul>
+    <% @entidade_equipamento.errors.full_messages.each do |msg| %>
+    <li>
+      <strong><%= msg %></strong>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_for @entidade_equipamento, :html => { :class => 'form-horizontal' } do |f| %>
+
+<% if params[:action] != 'edit' %>
+  <div class="control-group", id="tipo">
+    <%= f.label :tipo_id, 'Tipo', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select( :tipo_id, @tipos.collect { |l| [l.nome, l.id] } ) %>
+    </div>
+  </div>
+<% end %>
+
+<div class="control-group">
+  <%= f.label :nome, 'Nome', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :nome, :autofocus => true, :class => 'span6', :size => '64', :maxlength => '254' %>
+    <br/>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :horario, 'Horário Funcionamento', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :horario, :class => 'span5', :size => '64', :maxlength => '254' %>
+    <br/>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :descricao, 'Descrição', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :descricao, :class => 'span8', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Descrição Resumida da Entidade/Equipamento Cultural
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :email, 'E-Mail', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :email, :class => 'span5', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Apenas um E-Mail Válido que represente a Entidade/Equipamento Cultural
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :contato, 'Contato', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :contato, :class => 'span6', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Telefone, Celular, Fax, Rádio e/ou Outros. Ex.: (61) 8000-9000
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :site, 'Site', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :site, :class => 'span5', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Endereço Web. Ex.: juntadados.org, wwww.arteria.org.br
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :apresenta, 'Vídeo de Apresentação', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :apresenta, :class => 'span4', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Youtube, Vimeo e outros. Ex.: http://www.youtube.com/watch?v=0WKnKzaIWFM
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :cep, 'CEP', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :cep, :class => 'span2', :id => 'cep', :size => '8', :maxlength => '8' %>
+    <div class="tip">
+      Sem Traços ou Pontos. Ex.: 41800001, 79810001 e etc.
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :logradouro, 'Logradouro', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :logradouro, :class => 'span6', :id => 'logradouro', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Apenas Rua, Avenida, Travessa e Outros Ex.: Rua Sete de Setembro; Avenida Getúlio Vargas e etc.
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :complemento, 'Complemento', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :complemento, :class => 'span4', :size => '64', :maxlength => '254' %>
+    <div class="tip">
+      Bairro, Número, Número de Sala, Apartamento e Indicações em Geral
+    </div>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :estado, 'Estado', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.collection_select :estado, Estado.all, :sigla, :nome, {:prompt => true}, :id => 'estado' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :cidade, 'Cidade', :class => 'control-label' %>
+  <div class="controls">
+  <% if params[:action] == 'edit' %>
+    <% cidades = Cidade.all(:joins => :estado, :conditions => ["estados.sigla LIKE '#{@entidade_equipamento.estado}'" ]) %>
+    <%= f.collection_select :cidade, cidades, :nome, :nome, { :selected => @entidade_equipamento.cidade.to_s }, :id => 'cidade' %>
+  <% else %>
+    <select id="cidade" name="entidade_equipamento[cidade]" type="text"/></select>
+  <% end %>
+  </div>
+</div>
+
+<% if params[:action] == 'edit' %>
+<div class="control-group">
+  <%= f.label :latitude, 'Latitude', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :latitude, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :longitude, 'Longitude', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :longitude, :class => 'text_field' %>
+  </div>
+</div>
+<% end %>
+
+<div class="control-group" id="tipo_entidade">
+  <%= f.label :tipo_entidade_id, 'Tipo de Entidade', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select( :tipo_entidade_id, @tipo_entidades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'} ) %>
+  </div>
+</div>
+
+<div class="control-group" id="atividade">
+  <%= f.label :atividade_id, 'Atividade Principal', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+  </div>
+</div>
+
+<div class="control-group" id="tipo_equipamento">
+  <%= f.label :tipo_equipamento_id, 'Tipo de Equipamento', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select( :tipo_equipamento_id, @tipo_equipamentos.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :imagem, 'Imagem', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.file_field :imagem %>
+    <div class="tip">
+      Uma Imagem que representa a Entidade/Equipamento Cultural.
+    </div>
+  </div>
+</div>
+
+<% if current_user.admin? %>
+<div class="control-group">
+  <%= f.label :publicar, 'Publicar', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :publicar, 'Sim' => true, 'Não' => false %>
+  </div>
+</div>
+<% end %>
+
+<% if params[:action] == 'new' %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<% end %>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), entidade_equipamentos_path, :class => 'btn' %>
+</div>
+<% end %>
