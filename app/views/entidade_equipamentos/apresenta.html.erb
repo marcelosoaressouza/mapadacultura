@@ -21,13 +21,11 @@
   <div class="tab-content">
     <div class="active tab-pane">
       <div class="info">
-        <div class="info-details">
-          <%= '<h3>Nenhum Vídeo Encontrado</h3>'.html_safe if @entidade_equipamento.apresenta.size <= 1 %>
-          <%= auto_html(@entidade_equipamento.apresenta) { youtube } %>
-        </div>
-
-        <div class="info-image">
-          <%= image_tag @entidade_equipamento.imagem.url(:thumb) %>
+        <div class="info-details" style="min-width: 100%;">
+          <center>
+            <%= '<h3>Nenhum Vídeo Encontrado</h3>'.html_safe if @entidade_equipamento.apresenta.size <= 1 %>
+            <%= auto_html(@entidade_equipamento.apresenta) { youtube } %>
+          </center>
         </div>
       </div>
     </div>

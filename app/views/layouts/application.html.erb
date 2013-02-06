@@ -38,16 +38,16 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row-fluid">
+      <div class="row-fluid" <%= 'id="main-content"'.html_safe if controller.controller_name == 'home' %>>
         <%= render 'layouts/left' if controller.controller_name == 'home' %>
 
         <%
- if controller.controller_name == 'home'
+          if controller.controller_name == 'home'
             @HomeSize = "span9"
           else
             @HomeSize = "span12"
           end
-%>
+        %>
 
         <div class="<%= @HomeSize %>">
           <%= bootstrap_flash %>
