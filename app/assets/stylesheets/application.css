@@ -14,6 +14,13 @@
  *= require_tree .
  */
 
+.navbar-inner {
+/*  text-transform: uppercase; */
+  background: #000;
+  font-color: #fff;
+  border: 1px solid #000;
+}
+
 .tip {
   font-size: 11px;
   font-weight: 900;

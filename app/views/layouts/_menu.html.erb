@@ -1,11 +1,13 @@
 <ul class="nav">
     <li>
-      <%= link_to image_tag("/assets/Green-Option.png", :alt => "Sobre o Mapa da Cultura", :title => "Sobre o Mapa da Cultura"), '/home/sobre' %>
+      <%= link_to image_tag("/assets/Green-Option.png", :alt => "Sobre o Mapa da Cultura"), '/home/sobre', :id => 'popover-sobre', 'data-content' => 'Sobre o Mapa da Cultura', 'data-placement' => 'bottom'  %>
     </li>
 
   <li>
     <li class="dropdown">
-      <a id="entidade-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/Yellow-Option.png" alt="Entidades e Equipamentos Culturais" title="Entidades e Equipamentos Culturais"/></a>
+      <a id="entidade-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" data-content="Entidades e Equipamentos Culturais" data-placement="right">
+        <img src="/assets/Yellow-Option.png" alt="Entidades e Equipamentos Culturais"/>
+      </a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="entidade-drop">
         <li>
         <li>
@@ -51,7 +53,7 @@
 
   <% else %>
     <li class="login" id="login">
-      <%= link_to image_tag("/assets/Red-Option.png", :alt => "Logar", :title => "Logar"), new_user_session_path %>
+      <%= link_to image_tag("/assets/Red-Option.png", :alt => "Logar"), new_user_session_path, :id => 'popover-login', 'data-content' => 'Logar no Mapa da Cultura', 'data-placement' => 'bottom' %>
     </li>
   <% end %>
 </ul>

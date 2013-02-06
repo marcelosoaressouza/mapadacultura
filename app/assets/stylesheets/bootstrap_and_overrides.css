@@ -6,6 +6,27 @@
  =require twitter-bootstrap-static/fontawesome
  */
 
+.popover{
+  width:336px;
+  text-align: center;
+}
+
+.popover-title{
+  margin:0;
+  padding:2px 3px;
+  font-size:14px;
+  font-weight:normal;
+  line-height:1px;
+  background-color: #fff;
+  border-bottom: 0px;
+}
+
+.popover-content{
+  font-size:16px;
+  font-weight: 600;
+  padding:5px 10px;
+}
+
 #main-content {
   background-image: url("/assets/Background-MapaDaCultura.jpg");
   background-repeat: repeat;
