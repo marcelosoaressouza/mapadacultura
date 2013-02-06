@@ -55,17 +55,23 @@ input[type="checkbox"] {
 }
 
 .navbar .nav > li > a {
-  font-size: 20px;
+  font-size: 14px;
   color: #BC0011;
   font-weight: 900;
   float: none;
-  padding: 10px 15px;
+/*  padding: 10px 15px; */
+  padding: 5px 10px;
   text-decoration: none;
   text-shadow: none;
 }
 
 .navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
   color: #6B6B6B;
+}
+
+#three-colors {
+  margin-top: 8px;
+  float: right;
 }
 
 .navbar .brand {
@@ -130,6 +136,10 @@ h3 {
 .accordion-heading {
   font-size: 16px;
   background-color: #fff;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+  background-color: transparent;
 }
 
 .accordion-toggle {

@@ -22,6 +22,7 @@
 
   </head>
   <body onload="uncheck()">
+
     <%= javascript_include_tag "application" %>
     <%= yield :scripts %>
 
@@ -30,6 +31,7 @@
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
           <a class="brand" href="/">Mapa da Cultura</a>
+          <!-- <div id="three-colors"><img src="/assets/Three-Colors.png" alt="Three Colors"/></div> -->
           <div class="container-fluid nav-collapse">
             <%= render 'layouts/menu' %>
           </div><!--/.nav-collapse -->
@@ -38,8 +40,8 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row-fluid" <%= 'id="main-content"'.html_safe if controller.controller_name == 'home' %>>
-        <%= render 'layouts/left' if controller.controller_name == 'home' %>
+      <div class="row-fluid" <%= 'id="main-content"'.html_safe if (controller.controller_name == 'home' && controller.action_name == 'index')%>>
+        <%= render 'layouts/left' if (controller.controller_name == 'home' && controller.action_name == 'index')%>
 
         <%
           if controller.controller_name == 'home'

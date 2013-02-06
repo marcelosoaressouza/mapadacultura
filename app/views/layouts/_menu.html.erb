@@ -1,14 +1,18 @@
 <ul class="nav">
+    <li>
+      <%= link_to image_tag("/assets/Green-Option.png", :alt => "Sobre o Mapa da Cultura", :title => "Sobre o Mapa da Cultura"), '/home/sobre' %>
+    </li>
+
   <li>
     <li class="dropdown">
-      <a id="entidade-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Entidades e Equipamentos Culturais<b class="caret"></b> </a>
+      <a id="entidade-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/Yellow-Option.png" alt="Entidades e Equipamentos Culturais" title="Entidades e Equipamentos Culturais"/></a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="entidade-drop">
         <li>
         <li>
           <a tabindex="-1" href="/entidade_equipamentos/">Listar</a>
         </li>
         <li>
-          <a tabindex="-1" href="/entidade_equipamentos/new">Adicionar</a>
+          <a tabindex="-1" href="/entidade_equipamentos/new">Cadastrar</a>
         </li>
       </ul>
     </li>
@@ -18,7 +22,7 @@
     <% if current_user.admin? %>
       <li>
         <li class="dropdown">
-          <a id="configurar-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> Configurar<b class="caret"></b> </a>
+          <a id="configurar-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/Purple-Option.png" alt="Configurar" title="Configurar"/></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="configurar-drop">
           <li>
           <li>
@@ -42,12 +46,12 @@
     <% end %>
 
     <li class="login" id="logout">
-      <%= link_to(t("Logout") + " (" + current_user.firstname + ") ", destroy_user_session_path, :method => :delete) %>
+      <%= link_to image_tag("/assets/Red-Option.png", :alt => "Deslogar", :title => "Deslogar") + " (" + current_user.firstname + ")", destroy_user_session_path, :method => :delete %>
     </li>
 
   <% else %>
     <li class="login" id="login">
-      <%= link_to(t("Login"), new_user_session_path) %>
+      <%= link_to image_tag("/assets/Red-Option.png", :alt => "Logar", :title => "Logar"), new_user_session_path %>
     </li>
   <% end %>
 </ul>

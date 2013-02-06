@@ -28,6 +28,7 @@ Mapadacultura::Application.routes.draw do
   get '/cep/:cep', :to => 'application#cep'
 
   get "home/index"
+  get "home/sobre"
 
   root :to => 'home#index'
 end
