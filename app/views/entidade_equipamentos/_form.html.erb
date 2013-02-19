@@ -100,7 +100,7 @@
   <div class="controls">
     <%= f.text_field :site, :class => 'span5', :size => '64', :maxlength => '254' %>
     <div class="tip">
-      Endereço Web. Ex.: juntadados.org, wwww.arteria.org.br
+      Endereço Web. Ex.: juntadados.org, www.arteria.org.br
     </div>
   </div>
 </div>
@@ -156,7 +156,7 @@
   <%= f.label :cidade, 'Cidade', :class => 'control-label' %>
   <div class="controls">
   <% if params[:action] == 'edit' %>
-    <% cidades = Cidade.all(:joins => :estado, :conditions => ["estados.sigla LIKE '#{@entidade_equipamento.estado}'" ]) %>
+    <% cidades = Cidade.joins(:estado).where("estados.sigla LIKE ?", @entidade_equipamento.estado) %>
     <%= f.collection_select :cidade, cidades, :nome, :nome, { :selected => @entidade_equipamento.cidade.to_s }, :id => 'cidade' %>
   <% else %>
     <select id="cidade" name="entidade_equipamento[cidade]" type="text"/></select>

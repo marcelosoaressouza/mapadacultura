@@ -4,7 +4,7 @@ class CidadesController < ApplicationController
   protect_from_forgery
 
   def index
-    @cidades = Cidade.all(:joins => :estado, :conditions => ["estados.sigla LIKE '#{params[:sigla]}'" ])
+    @cidades = Cidade.joins(:estado).where("estados.sigla LIKE ?", params[:sigla])
 
     respond_to do |format|
       format.json  { render :json => @cidades }

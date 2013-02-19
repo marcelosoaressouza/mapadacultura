@@ -9,7 +9,12 @@ body {
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
+}
+
+.sobre p {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
 }
 
 pre {

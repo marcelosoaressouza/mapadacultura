@@ -61,7 +61,7 @@
               <strong>Site:</strong>
             </dt>
             <dd>
-              <%= link_to @entidade_equipamento.site, "http://" + @entidade_equipamento.site, :target => "_blank" %>&nbsp;
+              <%= link_to @entidade_equipamento.site, "http://#{@entidade_equipamento.site}".gsub!(/\s+/, ""), :target => "_blank" %>
             </dd>
             <dt>
               <strong>Logradouro:</strong>

@@ -5,7 +5,7 @@ class EntidadeEquipamentosController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy, :evaluate]
 
   def entidade
-    @entidade_equipamentos = EntidadeEquipamento.where("tipo_entidade_id = #{params[:id]} AND publicar = true")
+    @entidade_equipamentos = EntidadeEquipamento.where("tipo_entidade_id = ? AND publicar = true", params[:id])
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
       marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividade.nome
@@ -19,7 +19,7 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def equipamento
-    @entidade_equipamentos = EntidadeEquipamento.where("tipo_equipamento_id = #{params[:id]} AND publicar = true")
+    @entidade_equipamentos = EntidadeEquipamento.where("tipo_equipamento_id = ? AND publicar = true", params[:id])
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
       marker.title entidade_equipamento.nome + " - " + entidade_equipamento.tipo_equipamento.nome
@@ -33,7 +33,7 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def atividade
-    @entidade_equipamentos = EntidadeEquipamento.where("atividade_id = #{params[:id]} AND publicar = true")
+    @entidade_equipamentos = EntidadeEquipamento.where("atividade_id = ? AND publicar = true", params[:id])
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
       marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividade.nome
