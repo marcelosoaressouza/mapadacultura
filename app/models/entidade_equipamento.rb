@@ -33,9 +33,9 @@ class EntidadeEquipamento < ActiveRecord::Base
       <div class=\"infowindow\">
         <div class=\"infowindow-titulo\">
           <h3>#{self.nome[0..64]}</h3>
-          <p>#{self.descricao}</p>
+          <p>#{self.descricao.truncate(512)}</p>
           <br/>
-          <p><b>Saiba Mais: </b><a href=\"/entidade_equipamentos/#{self.slug}\" target=\"_blank\">#{self.nome[0..48]}...</a></p>
+          <p><b>Saiba Mais: </b><a href=\"/entidade_equipamentos/#{self.slug}\" target=\"_blank\">#{self.nome.truncate(42)}</a></p>
         </div>
         <div class=\"infowindow-logo\">
           <img src=\"#{self.imagem.url}\" width=\"150\" height=\"150\"/>

@@ -31,8 +31,8 @@ atividade_hip_hop = Atividade.create! :nome => 'Hip-Hop',
                                       :descricao => 'Hip-Hop',
                                       :imagem => File.open('db/imagens/Atividade_HipHop.png')
 
-atividade_cultura_popular = Atividade.create! :nome => 'Cultura Popular',
-                                              :descricao => 'Cultura Popular',
+atividade_cultura_popular = Atividade.create! :nome => 'Cultura Popular e Tradicional',
+                                              :descricao => 'Cultura Popular e Tradicional',
                                               :imagem => File.open('db/imagens/Atividade_CulturaPopular.png')
 
 atividade_teatro = Atividade.create! :nome => 'Teatro',
@@ -47,13 +47,33 @@ atividade_audiovisual = Atividade.create! :nome => 'Audiovisual',
                                           :descricao => 'Audiovisual',
                                           :imagem => File.open('db/imagens/Atividade_Audiovisual.png')
 
-atividade_artesanato = Atividade.create! :nome => 'Artesanato',
-                                         :descricao => 'Artesanato',
+atividade_artesanato = Atividade.create! :nome => 'Artesanato e Artes Plásticas',
+                                         :descricao => 'Artesanato e Artes Plásticas',
                                          :imagem => File.open('db/imagens/Atividade_Artesanato.png')
 
-atividade_realizacao = Atividade.create! :nome => 'Realização',
-                                         :descricao => 'Realização',
-                                         :imagem => File.open('db/imagens/Atividade_Realizacao.png')
+atividade_gestao = Atividade.create! :nome => 'Gestão e Pesquisa',
+                                     :descricao => 'Gestão e Pesquisa',
+                                     :imagem => File.open('db/imagens/Atividade_Realizacao.png')
+
+atividade_producao = Atividade.create! :nome => 'Produção',
+                                       :descricao => 'Produção',
+                                       :imagem => File.open('db/imagens/Atividade_Producao.png')
+
+atividade_circo = Atividade.create! :nome => 'Circo',
+                                    :descricao => 'Circo',
+                                    :imagem => File.open('db/imagens/Atividade_Circo.png')
+
+atividade_educacao = Atividade.create! :nome => 'Educação, Direitos Humanos e Cultura de Paz',
+                                       :descricao => 'Educação, Direitos Humanos e Cultura de Paz',
+                                       :imagem => File.open('db/imagens/Atividade_Educacao.png')
+
+atividade_saude = Atividade.create! :nome => 'Saúde e Cultura',
+                                    :descricao => 'Saúde e Cultura',
+                                    :imagem => File.open('db/imagens/Atividade_Saude.png')
+
+atividade_meio_ambiente = Atividade.create! :nome => 'Meio Ambiente e Cultura',
+                                            :descricao => 'Meio Ambiente e Cultura',
+                                            :imagem => File.open('db/imagens/Atividade_Meio_Ambiente.png')
 
 tipo_equipamento_teatro = TipoEquipamento.create! :nome => 'Teatro',
                                                   :descricao => 'Teatro',
