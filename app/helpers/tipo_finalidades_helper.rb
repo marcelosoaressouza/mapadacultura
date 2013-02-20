@@ -1,0 +1,2 @@
+module TipoFinalidadesHelper
+end

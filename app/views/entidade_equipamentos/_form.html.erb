@@ -13,12 +13,16 @@
           $('#tipo_equipamento').hide();
           $('#tipo_entidade').show();
           $('#atividade').show();
+          $('#personalidade').show();
+          $('#tipo_finalidade').show();
         <% end %>
 
         <% if @entidade_equipamento.tipo_id == 2 %>
           $('#tipo_equipamento').show();
           $('#tipo_entidade').hide();
           $('#atividade').hide();
+          $('#personalidade').hide();
+          $('#tipo_finalidade').hide();
         <% end %>
 
       <% end %>
@@ -48,6 +52,20 @@
     </div>
   </div>
 <% end %>
+
+<div class="control-group" id="personalidade">
+  <%= f.label :Personalidade_id, 'Personalidade', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :personalidade, %w[Pessoa\ Jurídica Pessoa\ Física], { :include_blank => 'Selecione' }, {:prompt => true } %>
+  </div>
+</div>
+
+<div class="control-group" id="tipo_finalidade">
+  <%= f.label :tipo_finalidade_id, 'Finalidade', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.collection_select :tipo_finalidade_id, TipoFinalidade.all, :id, :nome, {:prompt => true }, :class => 'span5' %>
+  </div>
+</div>
 
 <div class="control-group">
   <%= f.label :nome, 'Nome', :class => 'control-label' %>

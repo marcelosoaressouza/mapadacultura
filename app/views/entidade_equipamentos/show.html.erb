@@ -31,6 +31,22 @@
       <div class="info">
         <div class="info-details">
           <dl class="dl-horizontal">
+            <% if @entidade_equipamento.tipo_id == 1 %>
+              <dt>
+                <strong>Personalidade:</strong>
+              </dt>
+              <dd>
+                <%= @entidade_equipamento.personalidade %>&nbsp;
+              </dd>
+              <dt>
+                <strong>Finalidade:</strong>
+              </dt>
+              <dd>
+                <%= @entidade_equipamento.tipo_finalidade.nome if ! @entidade_equipamento.tipo_finalidade.nil? %>&nbsp;
+              </dd>
+              <br/>
+            <% end %>
+
             <dt>
               <strong>Descrição:</strong>
             </dt>

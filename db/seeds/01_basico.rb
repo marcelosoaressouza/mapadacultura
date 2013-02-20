@@ -14,6 +14,10 @@ tipo_entidade = Tipo.create! :nome => 'Entidade',
 tipo_equipamento = Tipo.create! :nome => 'Equipamentos',
                                 :descricao => 'Equipamentos Culturais'
 
+tipo_finalidade = TipoFinalidade.create! :nome => 'Entidade Privada Sem Fins Lucrativos'
+tipo_finalidade = TipoFinalidade.create! :nome => 'Entidade Pública'
+tipo_finalidade = TipoFinalidade.create! :nome => 'Entidade Privada Com Fins Lucrativos'
+
 tipo_entidade_associacao_cultural = TipoEntidade.create! :nome => 'Associação Cultural',
                                                          :descricao => 'Associação Cultural',
                                                          :imagem    => File.open('db/imagens/Tipo_AssociacaoCultural.png')

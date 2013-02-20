@@ -23,6 +23,7 @@ Mapadacultura::Application.routes.draw do
   resources :tipo_equipamentos
   resources :atividades
   resources :users
+  resources :tipo_finalidades
 
   get '/estados/:sigla/cidades', :to => 'cidades#index'
   get '/cep/:cep', :to => 'application#cep'

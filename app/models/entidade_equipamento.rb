@@ -1,11 +1,12 @@
 # encoding: utf-8
 
 class EntidadeEquipamento < ActiveRecord::Base 
-  attr_accessible :cep, :cidade, :contato, :descricao, :apresenta, :email, :logradouro, :complemento, :estado, :latitude, :longitude, :gmaps, :publicar, :nome, :site, :slug, :imagem, :tipo_entidade_id, :tipo_equipamento_id, :tipo_id, :atividade_id, :user_id, :horario
+  attr_accessible :cep, :cidade, :contato, :descricao, :apresenta, :email, :logradouro, :complemento, :estado, :latitude, :longitude, :gmaps, :publicar, :nome, :site, :slug, :imagem, :tipo_entidade_id, :tipo_equipamento_id, :tipo_id, :atividade_id, :user_id, :horario, :tipo_finalidade_id, :personalidade
 
   belongs_to :tipo
   belongs_to :tipo_entidade
   belongs_to :tipo_equipamento
+  belongs_to :tipo_finalidade
   belongs_to :atividade
   belongs_to :user
   has_one :questionario_basico_entidade

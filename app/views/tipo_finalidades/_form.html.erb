@@ -1,0 +1,13 @@
+<%= form_for @tipo_finalidade, :html => { :class => 'form-horizontal' } do |f| %>
+<div class="control-group">
+  <%= f.label :nome, 'Nome', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :nome, :autofocus => true, :class => 'span4', :size => '64', :maxlength => '254' %>
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")), tipo_finalidades_path, :class => 'btn' %>
+</div>
+<% end %>

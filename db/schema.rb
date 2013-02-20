@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124165505) do
+ActiveRecord::Schema.define(:version => 20130220141547) do
 
   create_table "atividades", :force => true do |t|
     t.string   "nome"
@@ -53,11 +53,13 @@ ActiveRecord::Schema.define(:version => 20130124165505) do
     t.boolean  "gmaps",               :default => false, :null => false
     t.boolean  "publicar",            :default => false, :null => false
     t.string   "horario"
+    t.string   "personalidade"
     t.integer  "tipo_id"
     t.integer  "tipo_entidade_id"
     t.integer  "tipo_equipamento_id"
     t.integer  "atividade_id"
     t.integer  "user_id"
+    t.integer  "tipo_finalidade_id"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "imagem_file_name"
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130124165505) do
   add_index "entidade_equipamentos", ["atividade_id"], :name => "index_entidade_equipamentos_on_atividade_id"
   add_index "entidade_equipamentos", ["tipo_entidade_id"], :name => "index_entidade_equipamentos_on_tipo_entidade_id"
   add_index "entidade_equipamentos", ["tipo_equipamento_id"], :name => "index_entidade_equipamentos_on_tipo_equipamento_id"
+  add_index "entidade_equipamentos", ["tipo_finalidade_id"], :name => "index_entidade_equipamentos_on_tipo_finalidade_id"
   add_index "entidade_equipamentos", ["tipo_id"], :name => "index_entidade_equipamentos_on_tipo_id"
   add_index "entidade_equipamentos", ["user_id"], :name => "index_entidade_equipamentos_on_user_id"
 
@@ -138,6 +141,13 @@ ActiveRecord::Schema.define(:version => 20130124165505) do
     t.string   "imagem_content_type"
     t.integer  "imagem_file_size"
     t.datetime "imagem_updated_at"
+  end
+
+  create_table "tipo_finalidades", :force => true do |t|
+    t.string   "nome"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "tipos", :force => true do |t|

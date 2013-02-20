@@ -1,0 +1,34 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to "Todos", tipo_finalidades_path %>
+  </li>
+  <li>
+    <%= link_to "Cadastrar", new_tipo_finalidade_path %>
+  </li>
+  <li class="active">
+    <%= link_to @tipo_finalidade.nome %>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div class="active tab-pane">
+    <dl class="dl-horizontal">
+      <dt>
+        <strong>Nome:</strong>
+      </dt>
+      <dd>
+        <%= @tipo_finalidade.nome %>&nbsp;
+      </dd>
+    </dl>
+
+    <% if user_signed_in? %>
+    <% if current_user.admin? %>
+    <div class="form-actions">
+      <%= link_to t('.back', :default => t("helpers.links.back")), tipo_finalidades_path, :class => 'btn'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_tipo_finalidade_path(@tipo_finalidade), :class => 'btn' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")), tipo_finalidade_path(@tipo_finalidade), :method => 'delete', :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) }, :class => 'btn btn-danger' %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

@@ -47,12 +47,17 @@ $(document).ready(function() {
       $('#tipo_equipamento').hide();
       $('#atividade').show();
       $('#tipo_entidade').show();
+      $('#personalidade').show();
+      $('#tipo_finalidade').show();
+
     }
     else if ($(this).val() == 2)
     {
       $('#tipo_entidade').hide();
       $('#atividade').hide();
       $('#tipo_equipamento').show();
+      $('#personalidade').hide();
+      $('#tipo_finalidade').hide();
     }
 
   });
