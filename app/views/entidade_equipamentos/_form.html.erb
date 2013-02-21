@@ -25,6 +25,14 @@
           $('#tipo_finalidade').hide();
         <% end %>
 
+        <% if @entidade_equipamento.personalidade == 'Pessoa Física' %>
+          $('#tipo_entidade').hide();
+          $('#tipo_finalidade').hide();
+        <% else %>
+          $('#tipo_entidade').show();
+          $('#tipo_finalidade').show();
+        <% end %>
+
       <% end %>
     });
   </script>
@@ -173,7 +181,7 @@
 <div class="control-group">
   <%= f.label :cidade, 'Cidade', :class => 'control-label' %>
   <div class="controls">
-  <% if params[:action] == 'edit' %>
+  <% if params[:action] == 'edit' || params[:action] == 'create' || params[:action] == 'update' %>
     <% cidades = Cidade.joins(:estado).where("estados.sigla LIKE ?", @entidade_equipamento.estado) %>
     <%= f.collection_select :cidade, cidades, :nome, :nome, { :selected => @entidade_equipamento.cidade.to_s }, :id => 'cidade' %>
   <% else %>
@@ -238,8 +246,8 @@
 </div>
 <% end %>
 
-<% if params[:action] == 'new' %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
+<% if params[:action] == 'new' || params[:action] == 'create' %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 <% end %>
 
 <div class="form-actions">

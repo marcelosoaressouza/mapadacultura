@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
                        :length => { :minimum => 3, :maximum => 254 }
 
   usar_como_cpf :cpf
+
+  has_many :entidade_equipamentos
 end

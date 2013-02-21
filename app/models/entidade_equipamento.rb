@@ -13,15 +13,15 @@ class EntidadeEquipamento < ActiveRecord::Base
 
   has_many :fotos, :dependent => :destroy
 
-#  validates :nome,        :presence => true, :length => { :minimum => 2 }
-#  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
-#  validates :contato,     :presence => true
-#  validates :descricao,   :presence => true
-#  validates :logradouro,  :presence => true, :length => { :minimum => 4 }
-#  validates :estado,      :presence => true
-#  validates :cidade,      :presence => true
-#  validates :imagem,      :presence => true
-#  validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
+  validates :nome,        :presence => true, :length => { :minimum => 2 }
+  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
+  validates :contato,     :presence => true
+  validates :descricao,   :presence => true
+  validates :logradouro,  :presence => true, :length => { :minimum => 4 }
+  validates :estado,      :presence => true
+  validates :cidade,      :presence => true
+  validates :imagem,      :presence => true
+  validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
 
   acts_as_gmappable :process_geocoding => false
 

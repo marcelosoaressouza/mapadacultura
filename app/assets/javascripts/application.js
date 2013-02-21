@@ -62,6 +62,19 @@ $(document).ready(function() {
 
   });
 
+  $('#entidade_equipamento_personalidade').on('change', function() {
+    if ($(this).val() == 'Pessoa Física')
+    {
+      $('#tipo_entidade').hide();
+      $('#tipo_finalidade').hide();
+    }
+    else
+    {
+      $('#tipo_entidade').show();
+      $('#tipo_finalidade').show();
+    }
+  });
+
 /*
   $('#cep').on('change', function() {
     if (!$(this).val().match(/\d{8}/) && !$(this).val().match(/\d{5}-\d{3}/))
