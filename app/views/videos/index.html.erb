@@ -8,10 +8,10 @@
     <li>
       <%= link_to "Apresentação (Vídeo)", apresenta_entidade_equipamentos_path(@dados) %>
     </li>
-    <li class="active">
+    <li>
       <%= link_to "Fotos", entidade_equipamento_fotos_path(@dados) %>
     </li>
-    <li>
+    <li class="active">
       <%= link_to "Vídeos", entidade_equipamento_videos_path(@dados) %>
     </li>
     <% if @dados.tipo_id == 1 %>
@@ -26,18 +26,18 @@
 
       <% if user_signed_in? %>
       <% if (current_user.id == @dados.user_id || current_user.admin?) %>
-      <%= link_to t('.new', :default => t("helpers.links.new")), new_entidade_equipamento_foto_path, :class => 'btn btn-primary' if ! @fotos.empty?%>
+      <%= link_to t('.new', :default => t("helpers.links.new")), new_entidade_equipamento_video_path, :class => 'btn btn-primary' if ! @videos.empty?%>
       <% end %>
       <% end %>
 
-      <% if @fotos.empty? %>
+      <% if @videos.empty? %>
       <center>
         <br/>
-        <h3> Nenhuma Foto encontrada
+        <h3> Nenhum Vídeo encontrado
         <br/>
         <% if user_signed_in? %>
           <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>
-            <%= link_to "Adicionar nova Foto?", new_entidade_equipamento_foto_path if user_signed_in?%> </h3>
+            <%= link_to "Adicionar novo Vídeo?", new_entidade_equipamento_video_path if user_signed_in?%> </h3>
           <% end %>
         <% end %>
         <br/>
@@ -59,15 +59,15 @@
         </thead>
 
         <tbody>
-          <% @fotos.each do |foto| %>
+          <% @videos.each do |video| %>
           <tr>
-            <td><%= link_to (image_tag foto.foto.url(:thumb)), foto.foto.url, :id => "image-box" %></td>
-            <td><b><%= foto.nome %></b></td>
-            <td><%= foto.descricao %></td>
+            <td><%= link_to (image_tag video.video.url(:thumb), :width => "150"), entidade_equipamento_video_view_path(@dados, video), :id => "video-box" %></td>
+            <td><b><%= video.nome %></b></td>
+            <td><%= video.descricao %></td>
             <% if user_signed_in? %>
             <% if (current_user.id == @dados.user_id || current_user.admin?) %>
-            <td> <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_foto_path(@dados, foto), :class => 'btn btn-mini' %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), entidade_equipamento_foto_path(@dados, foto), :method => :delete,
+            <td> <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_video_path(@dados, video), :class => 'btn btn-mini' %>
+            <%= link_to t('.destroy', :default => t("helpers.links.destroy")), entidade_equipamento_video_path(@dados, video), :method => :delete,
             :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você esta certo?')) },
             :class => 'btn btn-mini btn-danger' %> </td>
             <% end %>

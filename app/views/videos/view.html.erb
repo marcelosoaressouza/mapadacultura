@@ -1,0 +1,15 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+
+<center>
+    <div id="container">Carregando o Player...</div>
+
+    <script type="text/javascript">
+      jwplayer("container").setup({
+        flashplayer: "/assets/jwplayer/jwplayer.flash.swf",
+        file: "<%= @video.video.url(:medium) %>",
+        width: 360,
+        height: 240
+      });
+    </script>
+</center>

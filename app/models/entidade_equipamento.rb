@@ -11,7 +11,8 @@ class EntidadeEquipamento < ActiveRecord::Base
   belongs_to :user
   has_one :questionario_basico_entidade
 
-  has_many :fotos, :dependent => :destroy
+  has_many :fotos,  :dependent => :destroy
+  has_many :videos, :dependent => :destroy
 
   validates :nome,        :presence => true, :length => { :minimum => 2 }
   validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }

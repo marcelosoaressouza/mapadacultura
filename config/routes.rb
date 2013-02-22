@@ -3,7 +3,10 @@ Mapadacultura::Application.routes.draw do
 
   resources :entidade_equipamentos do
     resources :questionario_basico_entidades, :path => 'questionario'
-    resources :fotos, :controller => "fotos"
+    resources :fotos,  :controller => "fotos"
+    resources :videos, :controller => "videos" do
+      get 'view', :action => 'view', :as => 'view'
+    end
 
     collection do
       get 'entidades/',           :action => 'entidades'

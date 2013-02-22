@@ -107,6 +107,15 @@ $(document).ready(function() {
 
   $("#image-box").fancybox();
 
+  $("#video-box").fancybox({
+    'width'         : '640',
+    'height'        : '480',
+    'closeBtn'      : true,
+    'autoScale'     : false,
+    'transitionIn'  : 'none',
+    'transitionOut' : 'none',
+    'type'          : 'iframe'
+  });
 });
 
 // Maps Functions
