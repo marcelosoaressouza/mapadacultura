@@ -23,6 +23,7 @@ $(document).ready(function() {
 
   $('#popover-sobre').popover({ trigger: "hover" });
   $('#popover-login').popover({ trigger: "hover" });
+  $('.popover-image').popover({ trigger: "hover" });
   $('#entidade-drop').popover({ trigger: "hover" });
 
   $('.jquery-ui-date').datepicker({

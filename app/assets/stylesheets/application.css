@@ -84,3 +84,63 @@ strong {
   float: right;
   vertical-align: bottom;
 }
+
+ul#grid {
+  padding: 0;
+  list-style: none;
+  margin: 20px auto 0;
+  width: 700px;  
+}
+
+#grid li {
+  float: left;
+  padding: 0;
+  margin: 0 5px 10px 5px;
+} 
+
+#grid li a {
+  display: block;
+}
+
+#grid li img {
+  background-color: #64666a;
+  padding: 2px; margin: 0;
+/*  border: 1px dotted #58595b; */
+  width: 150px;
+  height: 150px;
+}
+
+#grid li a:hover img {
+  opacity:0.3; filter:alpha(opacity=30);
+}
+
+.grid_display {
+  padding: 20px;
+  margin-left: auto; margin-right: auto;  margin-top:50px; margin-bottom:0;
+  /*background-color: #ffd7ce;*/
+  width: 513px; 
+
+  /*these two properties will be inherited by .grid_display h2 and .grid_display p */
+  font-family: 'GraublauWeb', arial, serif; 
+  text-align: center;
+}  
+
+div.grid_display h2 {
+  padding: 0; margin: 0;
+  clear: both;
+  font-size: 35px;
+  font-weight: normal;
+  color: #58595b;
+  background: none;
+  font-family: 'GraublauWeb', arial, serif;  
+
+  /* reset for cascade effects that are trickling down from other h2's */
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.grid_display p {
+  margin:0; padding: 0;
+  font-size: 15px;
+  color: #58595b;
+}
