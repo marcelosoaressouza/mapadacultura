@@ -14,7 +14,7 @@
     <li>
       <%= link_to "Vídeos", entidade_equipamento_videos_path(@entidade_equipamento) %>
     </li>
-    <% if @entidade_equipamento.tipo_id != 1 %>
+    <% if @entidade_equipamento.tipo_id != 2 %>
       <li>
         <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@entidade_equipamento) %>
       </li>
@@ -34,13 +34,15 @@
       <div class="info">
         <div class="info-details">
           <dl class="dl-horizontal">
-            <dt>
-              <strong>Natureza:</strong>
-            </dt>
-            <dd>
-              <%= @entidade_equipamento.tipo_natureza.nome if ! @entidade_equipamento.tipo_natureza.nil? %>&nbsp;
-            </dd>
-            <br/>
+            <% if ! @entidade_equipamento.tipo_natureza.nil? %>
+              <dt>
+                <strong>Natureza:</strong>
+              </dt>
+              <dd>
+                <%= @entidade_equipamento.tipo_natureza.nome if @entidade_equipamento.tipo_natureza.nome.size > 1 %>&nbsp;
+              </dd>
+              <br/>
+            <% end %>
             <% if @entidade_equipamento.tipo_id == 1 %>
               <% @entidade_equipamento.entidade_equipamento_atividades.each do |entidade_equipamento_atividade| %>
                 <% label = 'Principal'  if entidade_equipamento_atividade.ordem == 1 %>

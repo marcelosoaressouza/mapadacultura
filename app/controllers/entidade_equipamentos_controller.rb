@@ -77,7 +77,7 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def apresenta
-    @entidade_equipamento = EntidadeEquipamento.joins(:entidade_equipamento_atividades).find(params[:id])
+    @entidade_equipamento = EntidadeEquipamento.find(params[:id])
 
     respond_to do |format|
       format.html
