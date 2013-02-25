@@ -36,18 +36,21 @@
           <dl class="dl-horizontal">
             <% if @entidade_equipamento.tipo_id == 1 %>
               <dt>
-                <strong>Personalidade:</strong>
+                <strong>Natureza:</strong>
               </dt>
               <dd>
-                <%= @entidade_equipamento.personalidade %>&nbsp;
-              </dd>
-              <dt>
-                <strong>Finalidade:</strong>
-              </dt>
-              <dd>
-                <%= @entidade_equipamento.tipo_finalidade.nome if ! @entidade_equipamento.tipo_finalidade.nil? %>&nbsp;
+                <%= @entidade_equipamento.tipo_natureza.nome if ! @entidade_equipamento.tipo_natureza.nil? %>&nbsp;
               </dd>
               <br/>
+            <% end %>
+
+            <% if @entidade_equipamento.tipo_id == 1 %>
+              <dt>
+                <strong>Atividade:</strong>
+              </dt>
+              <dd>
+                <%= @entidade_equipamento.atividade.nome %>&nbsp;
+              </dd>
             <% end %>
 
             <dt>
@@ -57,13 +60,17 @@
               <%= @entidade_equipamento.descricao %>&nbsp;
             </dd>
             <br/>
-            <dt>
-              <strong>Horário de Funcionamento:</strong>
-            </dt>
-            <dd>
-              <%= @entidade_equipamento.horario %>&nbsp;
-            </dd>
-            <br/>
+
+            <% if ! @entidade_equipamento.horario.nil? %>
+              <dt>
+                <strong>Horário de Funcionamento:</strong>
+              </dt>
+              <dd>
+                <%= @entidade_equipamento.horario %>&nbsp;
+              </dd>
+              <br/>
+            <% end %>
+
             <dt>
               <strong>E-Mail:</strong>
             </dt>
@@ -118,24 +125,6 @@
             <dd>
               <%= @entidade_equipamento.longitude %>&nbsp;
             </dd>
-            <dt>
-              <strong>Tipo:</strong>
-            </dt>
-            <dd>
-              <% if @entidade_equipamento.tipo_id == 1 %>
-                <%= @entidade_equipamento.tipo_entidade.nome if @entidade_equipamento.personalidade != 'Pessoa Física' %>&nbsp;
-              <% else %>
-                <%= @entidade_equipamento.tipo_equipamento.nome %>&nbsp;
-              <% end %>
-            </dd>
-            <% if @entidade_equipamento.tipo_id == 1 %>
-              <dt>
-                <strong>Atividade:</strong>
-              </dt>
-              <dd>
-                <%= @entidade_equipamento.atividade.nome %>&nbsp;
-              </dd>
-            <% end %>
             <dt>
               <strong>Cadastrante/Responsável:</strong>
             </dt>

@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
     @tipo_equipamentos = TipoEquipamento.all
   end
 
-  before_filter :tipo_entidades
-  def tipo_entidades
-    @tipo_entidades = TipoEntidade.all
-  end
-
   before_filter :atividades
   def atividades
     @atividades = Atividade.all

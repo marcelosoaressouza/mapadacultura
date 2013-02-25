@@ -47,7 +47,6 @@
           <th>#</th>
           <th>Nome</th>
           <th>Estado</th>
-          <th>Tipo</th>
           <th>Atividade</th>
           <th>Fotos</th>
           <th><%= 'Publicado' if user_signed_in? %></th>
@@ -61,7 +60,6 @@
           <td><%= link_to entidade_equipamento.id, entidade_equipamento_path(entidade_equipamento)   %></td>
           <td><%= link_to entidade_equipamento.nome, entidade_equipamento_path(entidade_equipamento) %></td>
           <td><%= entidade_equipamento.estado %></td>    
-          <td><%= image_tag entidade_equipamento.tipo_entidade.imagem.url, :title => entidade_equipamento.tipo_entidade.nome %></td>
           <td><%= image_tag entidade_equipamento.atividade.imagem.url, :title => entidade_equipamento.atividade.nome %></td>
           <td><%= entidade_equipamento.fotos.size %></td>
           <td><strong><%= I18n.t(entidade_equipamento.publicar.to_s) if user_signed_in? %></strong></td>

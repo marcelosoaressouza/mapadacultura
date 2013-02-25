@@ -15,7 +15,6 @@ entidade = EntidadeEquipamento.create! :descricao => 'A associação possui cine
                             :longitude => -47.6530577,
                             :user_id  => 1,
                             :atividade_id  => 1,
-                            :tipo_entidade_id   => 1,
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Cursos de cenotécnica, luminotécnica, contra-regra, adereço, bilheteria e portaria',
@@ -25,7 +24,6 @@ entidade = EntidadeEquipamento.create! :descricao => 'Cursos de cenotécnica, lu
                             :logradouro  => 'EQS 208/209',
                             :complemento => ' ,  ',
                             :estado    => 'DF',
-
                             :nome      => 'Ponto De Cultura ESTEC - Estúdio De Tecnologia Cênica',
                             :email     => 'nac@nac@org.br',
                             :imagem    => File.open('db/imagens/Ponto-De-Cultura.png'),
@@ -34,7 +32,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Cursos de cenotécnica, lu
                             :longitude => -47.9030486941338,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de audiovisual e áreas ligadas a comunicação',
@@ -53,7 +51,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de audiovisual e 
                             :longitude => -47.7794659137726,
                             :user_id  => 1,
                             :atividade_id  => 5,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Grupo de quadrilha junina que possui trabalhos com artesanato e dança ',
@@ -72,7 +70,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Grupo de quadrilha junina 
                             :longitude => -47.7813059091568,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Coletivo de Artistas que trabalha com artes visuais (grafite e design) - cursos, oficinas e projetos gráficos',
@@ -91,11 +89,10 @@ entidade = EntidadeEquipamento.create! :descricao => 'Coletivo de Artistas que t
                             :longitude => -48.1031388044357,
                             :user_id  => 1,
                             :atividade_id  => 1,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
-entidade = EntidadeEquipamento.create! :descricao => 'Cultura Popular, confecção de instrumentos e figurino, oficinas de percussão
-',
+entidade = EntidadeEquipamento.create! :descricao => 'Cultura Popular, confecção de instrumentos e figurino, oficinas de percussão',
                             :site            => 'www.seuestrelo.arte.br',
                             :cep             => '70200-130',
                             :contato     => '8114-1520/ 3522-8884',
@@ -111,7 +108,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Cultura Popular, confecç�
                             :longitude => -47.9084345698357,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Grupo musical baseado na percussão, trabalha com fabricação de instrumentos e pesquisa de ritmos afro brasileiros',
@@ -130,7 +127,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Grupo musical baseado na p
                             :longitude => -47.7777895331383,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Inclusão social através de música, percussão e expressão corporal, educação ambiental e inclusão digital.',
@@ -149,7 +146,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Inclusão social através 
                             :longitude => -48.0989652872086,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de frevo, artes plásticas, corte e costura, cordel, serigrafia e construção de bonecos gigantes. O ponto possui também aulas de teoria musical e prática instrumental.',
@@ -168,7 +165,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de frevo, artes p
                             :longitude => -48.1028115749359,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O ponto trabalha com diversas frentes: capoeira, mamulengo, cultura digital, cine clube, além da loja Mercado Brasileiro.',
@@ -187,7 +184,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O ponto trabalha com diver
                             :longitude => -48.0539739131927,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Brinquedoteca comunitária, oficinas de música, literatura e formação de oficineiros.',
@@ -206,7 +203,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Brinquedoteca comunitária
                             :longitude => -47.7805495262146,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Divulgação da música brasileira',
@@ -225,7 +222,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Divulgação da música br
                             :longitude => -47.7872657775879,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Produção de artesanato utilizando como matéria prima, fibras e plantas do cerrado. A associação também ministra cursos sobre o cerrado e técnicas de artesanato.',
@@ -244,7 +241,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Produção de artesanato u
                             :longitude => -47.658503651619,
                             :user_id  => 1,
                             :atividade_id  => 6,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de artesanato
@@ -264,7 +261,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de artesanato
                             :longitude => -47.975497841835,
                             :user_id  => 1,
                             :atividade_id  => 6,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Formação de formadores, desenvolvimento e execução de projetos culturais.',
@@ -283,7 +280,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Formação de formadores, 
                             :longitude => -47.9097756743431,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Trabalho de formação musical através da prática vivencial.',
@@ -302,7 +299,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Trabalho de formação mus
                             :longitude => -48.1182932853699,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Capoeira, Maculelê, Samba de roda. Também de desenvolve projetos de alfabetização (ABCerrado) e de artesanato (Bicho Serrador)',
@@ -321,7 +318,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Capoeira, Maculelê, Samba
                             :longitude => -47.6607191562653,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Capoeira, danças afro e circo',
@@ -340,7 +337,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Capoeira, danças afro e c
                             :longitude => -48.0225196480751,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Capoeira Angola',
@@ -359,7 +356,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Capoeira Angola',
                             :longitude => -47.8765296936035,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Cursos e oficinas de artesanato',
@@ -378,7 +375,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Cursos e oficinas de artes
                             :longitude => -47.7766388654709,
                             :user_id  => 1,
                             :atividade_id  => 6,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Biblioteca Comunitária. Ponto de encontro de grupos de folia e quadrilhas de São Sebastião',
@@ -397,7 +394,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Biblioteca Comunitária. P
                             :longitude => -47.753786444664,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Centro de cultura popular e quadrilha junina, oferece cursos de artesanato, música e danças populares.',
@@ -416,7 +413,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Centro de cultura popular 
                             :longitude => -48.0798196792603,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de teatro música e luthieria',
@@ -435,7 +432,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de teatro música
                             :longitude => -48.0985683202744,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Voltado para jovens, o programa oferece cursos de artes, principalmente grafite.',
@@ -454,7 +451,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Voltado para jovens, o pro
                             :longitude => -47.7868902683258,
                             :user_id  => 1,
                             :atividade_id  => 1,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oferece oficinas de teatro, inclusão digital e figurino',
@@ -473,7 +470,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oferece oficinas de teatro
                             :longitude => -47.8914320468903,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O grupo oferece oficinas de percussão, violão e realiza palestras educativas.',
@@ -492,7 +489,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O grupo oferece oficinas d
                             :longitude => -48.0971775949001,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Ministra cursos de audiovisual e fotografia. Oferece telecentro com aulas de informática, redação, leitura e curso pré-vestibular',
@@ -511,7 +508,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Ministra cursos de audiovi
                             :longitude => -48.1133741140366,
                             :user_id  => 1,
                             :atividade_id  => 5,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Projeto de integração sociocultural através da música. Confecção de instrumentos, danças afro e canto.',
@@ -530,7 +527,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Projeto de integração so
                             :longitude => -47.7674335241318,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de rádio jornalismo, informática, internet, interpretação de textos e educação ambiental. Produção e apresentação do programa de rádio aos domingos na Rádio Nacional AM.',
@@ -549,7 +546,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de rádio jornali
                             :longitude => -48.1413388252258,
                             :user_id  => 1,
                             :atividade_id  => 5,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Espaço programado para desenvolver atividades que unificam pesquisa, ensino e extensão entre alunos da Graduação e Pós-Graduação da UnB. Professor responsável: Dr. Osmar Abílio de C. Jr. Professor responsável pelo projeto de pesquisa: Dr. Neio Campos. Coordenação de Pesquisa: Me. Frederico S. Soares Desenvolvedores WEB: Diego Moreira e Anderson Augusto. ',
@@ -568,7 +565,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Espaço programado para de
                             :longitude => -47.8703498840332,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Propor, elaborar, e implementar políticas públicas culturais transdiciplinares, utilizando modelo de gestão compartilhada com entes públicos, privados e comunitários buscando o empoderamento das comunidades.',
@@ -587,7 +584,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Propor, elaborar, e implem
                             :longitude => -47.8855097293854,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Biblioteca e telecentro.',
@@ -606,7 +603,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Biblioteca e telecentro.',
                             :longitude => -48.0593276023865,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Hip-Hop, break, grafite, discotecagem, MC, literatura, inclusão digital, rádioweb e estúdio musical.',
@@ -625,7 +622,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Hip-Hop, break, grafite, d
                             :longitude => -48.096791356802,
                             :user_id  => 1,
                             :atividade_id  => 1,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Realização de espetáculos, oficinas de circo, teatro e confecção de bonecos.',
@@ -644,7 +641,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Realização de espetácul
                             :longitude => -48.0728888511658,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Educação ambiental e oficinas de teatro.',
@@ -663,7 +660,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Educação ambiental e ofi
                             :longitude => -48.0539336800575,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Montagem de espetáculos teatrais e realização de oficinas e cursos de teatro.',
@@ -682,7 +679,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Montagem de espetáculos t
                             :longitude => -47.9067850112915,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de capacitação voltadas para arte e educação, trabalhando com os elementos do Hip-Hop.',
@@ -701,7 +698,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de capacitação 
                             :longitude => -47.7928447723389,
                             :user_id  => 1,
                             :atividade_id  => 1,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oferece escola de esportes (lutas), dança, teatro e artesanato.',
@@ -720,7 +717,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oferece escola de esportes
                             :longitude => -47.6800417900085,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oferece oficinas e cursos circenses',
@@ -739,7 +736,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oferece oficinas e cursos 
                             :longitude => -47.843120098114,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 2,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O Ponto promove oficinas de teatro, produz diversas montagens teatrais e fabrica bonecos de diversos tipos. O ponto conta com estúdio digital, telecentro e mala do livro.',
@@ -758,7 +755,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O Ponto promove oficinas d
                             :longitude => -48.0707028508186,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Preservar e difundir a obra do artista plástico Athos Bulcão e contribuir para a formação social, cognitiva e produtiva de jovens e adolescentes. Promover, por meio da arte, cultura e comunicação, o desenvolvimento pessoal, social, cognitivo e produtivo do ser humano.',
@@ -777,7 +774,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Preservar e difundir a obr
                             :longitude => -47.8816902637482,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'A Associação Cultural Claudio Santoro, entidade privada sem fins lucrativo, realiza trabalhos nas áreas de audiovisual e comunicação. ',
@@ -796,7 +793,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'A Associação Cultural Cl
                             :longitude => -47.8912745,
                             :user_id  => 1,
                             :atividade_id  => 5,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => '\"O Ponto de Cultura Cinema a Céu Aberto, coordenado pela Tantri Arte e Cultura, realizará oficinas na área de cinema. A Tantri Arte realiza eventos culturais voltados para o intercâmbio entre culturas e valorização da cultura brasileira.\"',
@@ -815,7 +812,7 @@ entidade = EntidadeEquipamento.create! :descricao => '\"O Ponto de Cultura Cinem
                             :longitude => -47.8801876,
                             :user_id  => 1,
                             :atividade_id  => 5,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O grupo promove o Sarau Radical e o Projeto Expressa Periferia.Oferece cursos de audiovisual, comunicação e teatro ',
@@ -834,7 +831,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O grupo promove o Sarau Ra
                             :longitude => -47.7845916152,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 1,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Brinquedoteca comunitária, oficinas de música, literatura e formação de oficineiros.',
@@ -853,7 +850,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Brinquedoteca comunitária
                             :longitude => -47.7804789,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Entidade de estudo, pesquisa, montagem e apresentação de peças teatrais e produção de eventos culturais. Seu objetivo é o desenvolvimento de trabalhos voltados à pesquisa e experimentação de linguagens artísticas, dando especial atenção à linguagem cômica, à arte da bobagem e do palhaço.\"',
@@ -872,7 +869,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Entidade de estudo, pesqui
                             :longitude => -48.0656029,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Desenvolve atividades da cultura popular brasileira- saraus,oficinas, recitais',
@@ -891,7 +888,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Desenvolve atividades da c
                             :longitude => -47.882194519043,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => '\"Nossas atividades ligadas ao convênio com a Secretaria de Cultura são: apresentações teatrais em 06 localidades do  DF e produção de  programas de rádio com foco na cultura do DF e entorno. O CGB atualmente participa na execução de projetos de cultura e meio ambiente de parceiros em MG, GO e MT, sempre na área de comunicação  e produção de rádio e vídeo.\"',
@@ -910,7 +907,7 @@ entidade = EntidadeEquipamento.create! :descricao => '\"Nossas atividades ligada
                             :longitude => -47.882194519043,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Grupo musical baseado na percussão, trabalha com fabricação de instrumentos e pesquisa de ritmos afro brasileiros ',
@@ -929,7 +926,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Grupo musical baseado na p
                             :longitude => -47.4882762,
                             :user_id  => 1,
                             :atividade_id  => 4,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Musica, Teatro, Dança e cultura popular.',
@@ -948,7 +945,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Musica, Teatro, Dança e c
                             :longitude => -48.1283622,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Grupo Avesso é dedicado às atividades de cultura inseridas nas lutados dos trabalhadores e de registro dessas lutas em textos, vídeos e fotogrfias. Começou seu trabalho com as comunidades carentes com uma oficina de poesia na Cidade Estrutural de setembro a novembro de 2007. Em junho de 2008, iniciou parcerias com a comunidade do Condomínio Sol Nascente, apoiando a organização da festa junina e em novembro de 2009 apoiou a realização do desfile dos “Negros do Sol”. Em Setembro de 2009, iniciaremos as atividades dos ponto Cultura Avessa no Sol Nascente e, em outubro, na Cidade Estrutural, contemplando oficinas de vídeo, de software livre, cineclube e um espetáculo de raízes afro-brasileiras.',
@@ -967,7 +964,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Grupo Avesso é dedicado �
                             :longitude => -48.116667,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Preservar e difundir a obra do artista plástico Athos Bulcão e contribuir para a formação social, cognitiva e produtiva de jovens e adolescentes. Promover, por meio da arte, cultura e comunicação, o desenvolvimento pessoal, social, cognitivo e produtivo do ser humano.     ',
@@ -986,7 +983,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Preservar e difundir a obr
                             :longitude => -47.8878045,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Atividades de capacitação, pesquisa, experimentação nas mais diversas linguagens artísticas  e cessão dos espaços (4 teatros, 4 galerias de arte, biblioteca de artes, gibiteca, \"galpão das artes\" para realização de oficinas de artes visuais) para artistas interessados em apresentar seus trabalhos.',
@@ -1005,7 +1002,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Atividades de capacitaçã
                             :longitude => -47.9054797,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O Instituto Cultural Congo Nya (ICCN), organização sem fins lucrativos foi criada para desenvolver projetos e atividades nas áreas de educação, artes, esportes e cultura, voltados principalmente para os/as jovens e crianças de São Sebastião-DF. ',
@@ -1024,7 +1021,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O Instituto Cultural Congo
                             :longitude => -47.7252960205078,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O Instituto Cultural Congo Nya (ICCN), organização sem fins lucrativos foi criada para desenvolver projetos e atividades nas áreas de educação, artes, esportes e cultura, voltados principalmente para os/as jovens e crianças de São Sebastião-DF. ',
@@ -1043,7 +1040,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O Instituto Cultural Congo
                             :longitude => -47.7252960205078,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O Ponto de Cultura se dedica a pesquisa, o ensino e difusão artística, o projeto está focado nas linguagens do clown (palhaço), de técnicas circenses e teatrais. Tem a parceria com a Universidade de Brasilia por meio do Decanato de extensão e do Departamento de Artes Cênicas.',
@@ -1062,7 +1059,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O Ponto de Cultura se dedi
                             :longitude => -48.1022811,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas nas áreas de teatro, dança, artes visuais e música.',
@@ -1081,7 +1078,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas nas áreas de tea
                             :longitude => -48.0605715,
                             :user_id  => 1,
                             :atividade_id  => 2,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O Ponto de Cultura Cinema a Céu Aberto, coordenado pela Tantri Arte e Cultura, realizará oficinas na área de cinema. A Tantri Arte realiza eventos culturais voltados para o intercâmbio entre culturas e valorização da cultura brasileira.',
@@ -1100,7 +1097,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'O Ponto de Cultura Cinema 
                             :longitude => -47.8852288,
                             :user_id  => 1,
                             :atividade_id  => 5,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'OSCIP Educação em Foco',
@@ -1119,7 +1116,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'OSCIP Educação em Foco',
                             :longitude => -47.8826934099197,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Reforço escolar, dança criativa e balé clássico.',
@@ -1138,7 +1135,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Reforço escolar, dança c
                             :longitude => -47.7243139,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de Teatro, Edição, Roteiro, Camera e Futebol.',
@@ -1157,7 +1154,7 @@ entidade = EntidadeEquipamento.create! :descricao => 'Oficinas de Teatro, Ediç�
                             :longitude => -47.4882762,
                             :user_id  => 1,
                             :atividade_id  => 3,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1
 
 entidade = EntidadeEquipamento.create! :descricao => 'O Instituto Cultural Congo Nya (ICCN), organização sem fins lucrativos foi criada para desenvolver projetos e atividades nas áreas de educação, artes, esportes e cultura, voltados principalmente para os/as jovens e crianças de São Sebastião-DF.',
@@ -1176,5 +1173,5 @@ entidade = EntidadeEquipamento.create! :descricao => 'O Instituto Cultural Congo
                             :longitude => -47.7828669548035,
                             :user_id  => 1,
                             :atividade_id  => 7,
-                            :tipo_entidade_id   => 3,
+
                             :publicar   => true, :tipo_id => 1

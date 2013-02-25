@@ -1,12 +1,11 @@
 # encoding: utf-8
 
 class EntidadeEquipamento < ActiveRecord::Base 
-  attr_accessible :cep, :cidade, :contato, :descricao, :apresenta, :email, :logradouro, :complemento, :estado, :latitude, :longitude, :gmaps, :publicar, :nome, :site, :slug, :imagem, :tipo_entidade_id, :tipo_equipamento_id, :tipo_id, :atividade_id, :user_id, :horario, :tipo_finalidade_id, :personalidade
+  attr_accessible :cep, :cidade, :contato, :descricao, :apresenta, :email, :logradouro, :complemento, :estado, :latitude, :longitude, :gmaps, :publicar, :nome, :site, :slug, :imagem, :tipo_equipamento_id, :tipo_id, :atividade_id, :ponto_de_cultura, :tombado, :user_id, :horario, :tipo_natureza_id
 
   belongs_to :tipo
-  belongs_to :tipo_entidade
   belongs_to :tipo_equipamento
-  belongs_to :tipo_finalidade
+  belongs_to :tipo_natureza
   belongs_to :atividade
   belongs_to :user
   has_one :questionario_basico_entidade
@@ -14,15 +13,15 @@ class EntidadeEquipamento < ActiveRecord::Base
   has_many :fotos,  :dependent => :destroy
   has_many :videos, :dependent => :destroy
 
-  validates :nome,        :presence => true, :length => { :minimum => 2 }
-  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
-  validates :contato,     :presence => true
-  validates :descricao,   :presence => true
-  validates :logradouro,  :presence => true, :length => { :minimum => 4 }
-  validates :estado,      :presence => true
-  validates :cidade,      :presence => true
-  validates :imagem,      :presence => true
-  validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
+#  validates :nome,        :presence => true, :length => { :minimum => 2 }
+#  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
+#  validates :contato,     :presence => true
+#  validates :descricao,   :presence => true
+#  validates :logradouro,  :presence => true, :length => { :minimum => 4 }
+#  validates :estado,      :presence => true
+#  validates :cidade,      :presence => true
+#  validates :imagem,      :presence => true
+#  validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
 
   acts_as_gmappable :process_geocoding => false
 

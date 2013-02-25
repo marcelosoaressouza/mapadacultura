@@ -2,35 +2,62 @@
   <script type="text/javascript">
     $(document).ready(function() {
 
+      $('#entidade_equipamento_tipo_id').on('change', function() {
+        if ($(this).val() == 1)
+        {
+          $('#tipo_equipamento').hide();
+          $('#atividade').show();
+          $('#tombado').hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").show();
+        }
+        else
+        {
+          if ($(this).val() == 2)
+          {
+            $('#atividade').hide();
+            $('#tombado').show();
+          }
+          else
+          {
+            $('#atividade').show();
+            $('#tombado').hide();
+          }
+
+          $('#tipo_equipamento').show();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").show();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide();
+        }
+      });
+
       <% if params[:action] == 'new' %>
         $('#tipo_equipamento').hide();
+        $('#tombado').hide();
+        $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide();
       <% end %>
 
       <% if params[:action] == 'edit' || params[:action] == 'create' || params[:action] == 'update' %>
         $('#tipo').hide();
+        $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").remove();
 
         <% if @entidade_equipamento.tipo_id == 1 %>
           $('#tipo_equipamento').hide();
-          $('#tipo_entidade').show();
           $('#atividade').show();
-          $('#personalidade').show();
-          $('#tipo_finalidade').show();
-        <% end %>
+          $('#tombado').hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").show();
+        <$ else %>
+          <% if @entidade_equipamento.tipo_id == 2 %>
+            $('#atividade').hide();
+            $('#tombado').show();
+          <% else %>
+            $('#atividade').show();
+            $('#tombado').hide();
+          <% end %>
 
-        <% if @entidade_equipamento.tipo_id == 2 %>
           $('#tipo_equipamento').show();
-          $('#tipo_entidade').hide();
-          $('#atividade').hide();
-          $('#personalidade').hide();
-          $('#tipo_finalidade').hide();
-        <% end %>
-
-        <% if @entidade_equipamento.personalidade == 'Pessoa Física' %>
-          $('#tipo_entidade').hide();
-          $('#tipo_finalidade').hide();
-        <% else %>
-          $('#tipo_entidade').show();
-          $('#tipo_finalidade').show();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").show();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide();
         <% end %>
 
       <% end %>
@@ -61,17 +88,31 @@
   </div>
 <% end %>
 
-<div class="control-group" id="personalidade">
-  <%= f.label :Personalidade_id, 'Personalidade', :class => 'control-label' %>
+<div class="control-group" id="tipo_natureza">
+  <%= f.label :tipo_natureza_id, 'Natureza', :class => 'control-label' %>
   <div class="controls">
-    <%= f.select :personalidade, %w[Pessoa\ Jurídica Pessoa\ Física], { :include_blank => 'Selecione' }, {:prompt => true } %>
+    <%= f.collection_select :tipo_natureza_id, TipoNatureza.all, :id, :nome, {:prompt => true }, :class => 'span5' %>
   </div>
 </div>
 
-<div class="control-group" id="tipo_finalidade">
-  <%= f.label :tipo_finalidade_id, 'Finalidade', :class => 'control-label' %>
+<div class="control-group" id="atividade">
+  <%= f.label :atividade_id, 'Atividade Principal', :class => 'control-label' %>
   <div class="controls">
-    <%= f.collection_select :tipo_finalidade_id, TipoFinalidade.all, :id, :nome, {:prompt => true }, :class => 'span5' %>
+    <%= f.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+  </div>
+</div>
+
+<div class="control-group" id="ponto_de_cultura">
+  <%= f.label :ponto_de_cultura, 'Ponto de Cultura', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :ponto_de_cultura, 'Sim' => true, 'Não' => false %>
+  </div>
+</div>
+
+<div class="control-group" id="tombado">
+  <%= f.label :tombado, 'Tombado', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.select :tombado, 'Sim' => true, 'Não' => false %>
   </div>
 </div>
 
@@ -205,20 +246,6 @@
   </div>
 </div>
 <% end %>
-
-<div class="control-group" id="tipo_entidade">
-  <%= f.label :tipo_entidade_id, 'Tipo de Entidade', :class => 'control-label' %>
-  <div class="controls">
-    <%= f.select( :tipo_entidade_id, @tipo_entidades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'} ) %>
-  </div>
-</div>
-
-<div class="control-group" id="atividade">
-  <%= f.label :atividade_id, 'Atividade Principal', :class => 'control-label' %>
-  <div class="controls">
-    <%= f.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
-  </div>
-</div>
 
 <div class="control-group" id="tipo_equipamento">
   <%= f.label :tipo_equipamento_id, 'Tipo de Equipamento', :class => 'control-label' %>

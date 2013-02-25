@@ -27,29 +27,6 @@
           </div>
         </div>
 
-        <!-- TipoEntidades -->
-
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#TipoEntidades">
-            <center>
-              <b>Entes e Agentes Culturais</b>
-            </center> </a>
-          </div>
-
-          <div id="TipoEntidades" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <% @tipo_entidades.each do |tipo_entidade| %>
-              <li class="tipo">
-                <%= check_box(tipo_entidade.nome, tipo_entidade.id, :class => 'checkbox-tipo', :onclick => 'CarregarTipoEntidades(this.id)' ) %>
-                <%= truncate(tipo_entidade.nome, :length => 21, :omission => '...') %>
-                <%= image_tag tipo_entidade.imagem.url(:thumb), :width => '24', :height => '24', :style => 'float:right', :alt => tipo_entidade.nome, :title => tipo_entidade.nome %>
-              </li>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
         <!-- TipoEquipamentos -->
 
         <div class="accordion-group">

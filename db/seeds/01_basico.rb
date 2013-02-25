@@ -8,28 +8,26 @@ user_admin = User.create! :email     => 'admin@localhost.org',
                           :password_confirmation => '123456789',
                           :admin => true
 
-tipo_entidade = Tipo.create! :nome => 'Entidade',
-                             :descricao => 'Entidades Culturais'
+tipo_entidade = Tipo.create! :nome => 'Pessoa Física',
+                             :descricao => 'Pessoa Física'
 
-tipo_equipamento = Tipo.create! :nome => 'Equipamentos',
-                                :descricao => 'Equipamentos Culturais'
+tipo_equipamento = Tipo.create! :nome => 'Equipamento',
+                                :descricao => 'Equipamento'
 
-tipo_finalidade = TipoFinalidade.create! :nome => 'Entidade Privada Sem Fins Lucrativos'
-tipo_finalidade = TipoFinalidade.create! :nome => 'Entidade Pública'
-tipo_finalidade = TipoFinalidade.create! :nome => 'Entidade Privada Com Fins Lucrativos'
+tipo_grupo_formalizado = Tipo.create! :nome => 'Grupo Formalizado',
+                                      :descricao => 'Grupo Formalizado'
 
-tipo_entidade_associacao_cultural = TipoEntidade.create! :nome => 'Associação Cultural',
-                                                         :descricao => 'Associação Cultural',
-                                                         :imagem    => File.open('db/imagens/Tipo_AssociacaoCultural.png')
+tipo_grupo_nao_formalizado = Tipo.create! :nome => 'Grupo Não Formalizado',
+                                          :descricao => 'Grupo Não Formalizado'
 
-tipo_entidade_grupo = TipoEntidade.create! :nome => 'Grupo',
-                                           :descricao => 'Grupo',
-                                           :imagem    => File.open('db/imagens/Tipo_Grupo.png')
-
-
-tipo_entidade_ponto_de_cultura = TipoEntidade.create! :nome => 'Ponto de Cultura',
-                                                      :descricao => 'Pontos de Cultura, Cidadania e Tecnologia',
-                                                      :imagem    => File.open('db/imagens/Tipo_PontoDeCultura.png')
+tipo_natureza = TipoNatureza.create! :nome => 'Privado Sem Fins Lucrativos'
+tipo_natureza = TipoNatureza.create! :nome => 'Privado Com Fins Lucrativos'
+tipo_natureza = TipoNatureza.create! :nome => 'Público'
+tipo_natureza = TipoNatureza.create! :nome => 'Artista'
+tipo_natureza = TipoNatureza.create! :nome => 'Gestor Público'
+tipo_natureza = TipoNatureza.create! :nome => 'Trabalhador (Outros)'
+tipo_natureza = TipoNatureza.create! :nome => 'Pesquisador'
+tipo_natureza = TipoNatureza.create! :nome => 'Consultor'
 
 atividade_hip_hop = Atividade.create! :nome => 'Hip-Hop',
                                       :descricao => 'Hip-Hop',

@@ -4,20 +4,6 @@ class EntidadeEquipamentosController < ApplicationController
   protect_from_forgery
   before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy, :evaluate]
 
-  def entidade
-    @entidade_equipamentos = EntidadeEquipamento.where("tipo_entidade_id = ? AND publicar = true", params[:id])
-
-    @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
-      marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividade.nome
-      marker.picture({ :picture => "#{entidade_equipamento.tipo_entidade.imagem.url}", :width =>  '24', :height => '24' })
-      marker.json({:id => entidade_equipamento.id})
-    end
-
-    respond_to do |format|
-      format.json { render json: @map }
-    end
-  end
-
   def equipamento
     @entidade_equipamentos = EntidadeEquipamento.where("tipo_equipamento_id = ? AND publicar = true", params[:id])
 
@@ -116,12 +102,11 @@ class EntidadeEquipamentosController < ApplicationController
   def new
     @entidade_equipamento = EntidadeEquipamento.new
     @tipos             = Tipo.all
-    @tipo_entidades    = TipoEntidade.all
     @tipo_equipamentos = TipoEquipamento.all
     @atividades        = Atividade.all
 
-    if @tipo_entidades.empty?
-      redirect_to "/tipo_entidades/new", :notice => 'Crie ao menos um Tipo de Entidade, Equipamento e Atividade.'
+    if @atividades.empty?
+      redirect_to "/atividades/new", :notice => 'Crie ao menos uma Atividade.'
       return
     end
 
@@ -135,7 +120,6 @@ class EntidadeEquipamentosController < ApplicationController
   def edit
     @entidade_equipamento = EntidadeEquipamento.find(params[:id])
     @tipos             = Tipo.all
-    @tipo_entidades    = TipoEntidade.all
     @tipo_equipamentos = TipoEquipamento.all
     @atividades        = Atividade.all
 
@@ -147,7 +131,6 @@ class EntidadeEquipamentosController < ApplicationController
   def create
     @entidade_equipamento = EntidadeEquipamento.new(params[:entidade_equipamento])
     @tipos             = Tipo.all
-    @tipo_entidades    = TipoEntidade.all
     @tipo_equipamentos = TipoEquipamento.all
     @atividades        = Atividade.all
 
@@ -167,7 +150,6 @@ class EntidadeEquipamentosController < ApplicationController
   def update
     @entidade_equipamento = EntidadeEquipamento.find(params[:id])
     @tipos             = Tipo.all
-    @tipo_entidades    = TipoEntidade.all
     @tipo_equipamentos = TipoEquipamento.all
     @atividades        = Atividade.all
 

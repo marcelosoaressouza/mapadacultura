@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class TipoFinalidade < ActiveRecord::Base
+class TipoNatureza < ActiveRecord::Base
   attr_accessible :nome, :slug
 
   has_many :entidade_equipamentos

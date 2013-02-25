@@ -42,40 +42,6 @@ $(document).ready(function() {
     });
   });
 
-  $('#entidade_equipamento_tipo_id').on('change', function() {
-    if ($(this).val() == 1)
-    {
-      $('#tipo_equipamento').hide();
-      $('#atividade').show();
-      $('#tipo_entidade').show();
-      $('#personalidade').show();
-      $('#tipo_finalidade').show();
-
-    }
-    else if ($(this).val() == 2)
-    {
-      $('#tipo_entidade').hide();
-      $('#atividade').hide();
-      $('#tipo_equipamento').show();
-      $('#personalidade').hide();
-      $('#tipo_finalidade').hide();
-    }
-
-  });
-
-  $('#entidade_equipamento_personalidade').on('change', function() {
-    if ($(this).val() == 'Pessoa Física')
-    {
-      $('#tipo_entidade').hide();
-      $('#tipo_finalidade').hide();
-    }
-    else
-    {
-      $('#tipo_entidade').show();
-      $('#tipo_finalidade').show();
-    }
-  });
-
 /*
   $('#cep').on('change', function() {
     if (!$(this).val().match(/\d{8}/) && !$(this).val().match(/\d{5}-\d{3}/))

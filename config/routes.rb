@@ -22,11 +22,10 @@ Mapadacultura::Application.routes.draw do
   end
 
   resources :tipos
-  resources :tipo_entidades
   resources :tipo_equipamentos
+  resources :tipo_naturezas
   resources :atividades
   resources :users
-  resources :tipo_finalidades
 
   get '/estados/:sigla/cidades', :to => 'cidades#index'
   get '/cep/:cep', :to => 'application#cep'

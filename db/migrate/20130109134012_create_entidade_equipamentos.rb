@@ -18,20 +18,20 @@ class CreateEntidadeEquipamentos < ActiveRecord::Migration
       t.boolean :gmaps,    :null => false, :default => false
       t.boolean :publicar, :null => false, :default => false
       t.string  :horario
-      t.string  :personalidade
       t.references :tipo
-      t.references :tipo_entidade
       t.references :tipo_equipamento
+      t.references :tipo_natureza
       t.references :atividade
+      t.boolean :ponto_de_cultura,  :null => false, :default => false
+      t.boolean :tombado,           :null => false, :default => false
+
       t.references :user
-      t.references :tipo_finalidade
 
       t.timestamps
     end
     add_index :entidade_equipamentos, :tipo_id
-    add_index :entidade_equipamentos, :tipo_entidade_id
     add_index :entidade_equipamentos, :tipo_equipamento_id
-    add_index :entidade_equipamentos, :tipo_finalidade_id
+    add_index :entidade_equipamentos, :tipo_natureza_id
     add_index :entidade_equipamentos, :atividade_id
     add_index :entidade_equipamentos, :user_id
   end
