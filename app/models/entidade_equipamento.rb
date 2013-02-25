@@ -20,7 +20,7 @@ class EntidadeEquipamento < ActiveRecord::Base
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 #  validates :nome,        :presence => true, :length => { :minimum => 2 }
-#  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
+  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
 #  validates :contato,     :presence => true
 #  validates :descricao,   :presence => true
 #  validates :logradouro,  :presence => true, :length => { :minimum => 4 }

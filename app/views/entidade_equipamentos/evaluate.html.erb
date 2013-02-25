@@ -47,6 +47,7 @@
           <th>Estado</th>
           <th>Atividade</th>
           <th>Fotos</th>
+          <th>Vídeos</th>
           <th>Publicado</th>
           <th><%= t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -58,13 +59,13 @@
           <td><%= link_to entidade_equipamento.id, entidade_equipamento_path(entidade_equipamento)   %></td>
           <td><%= link_to entidade_equipamento.nome, entidade_equipamento_path(entidade_equipamento) %></td>
           <td><%= entidade_equipamento.estado %></td>
-          <% if entidade_equipamento.tipo_id != 2 %>
-            <td><%= image_tag entidade_equipamento.atividade.imagem.url %></td>
-          <% else %>
+          <% if entidade_equipamento.tipo_id == 2 %>
             <td><%= image_tag entidade_equipamento.tipo_equipamento.imagem.url %></td>
-            <td>Não se Aplica</td>
+          <% else %>
+            <td><%= image_tag entidade_equipamento.atividades[0].imagem.url, :title => entidade_equipamento.atividades[0].nome if ! entidade_equipamento.atividades[0].nil? %></td>
           <% end %>
           <td><%= entidade_equipamento.fotos.size %></td>
+          <td><%= entidade_equipamento.videos.size %></td>
           <td><strong><%= I18n.t(entidade_equipamento.publicar.to_s) %></strong></td>
           <td>
           <% if user_signed_in? %>

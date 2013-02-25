@@ -16,14 +16,15 @@
           {
             $('.control-group.atividade').hide();
             $('#tombado').show();
+            $('#tipo_equipamento').show();
           }
           else
           {
             $('.control-group.atividade').show();
             $('#tombado').hide();
+            $('#tipo_equipamento').hide();
           }
 
-          $('#tipo_equipamento').show();
           $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").show().prop('disabled', false);
           $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide().prop('disabled', true);
         }
@@ -138,6 +139,7 @@
       <%= c.label :atividade_id, label, :class => 'control-label' %>
       <div class="controls">
         <%= c.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+        <%= c.hidden_field :ordem, :value => c.object.ordem %>
       </div>
     </div>
   <% end %>

@@ -19,7 +19,7 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def atividade
-    @entidade_equipamentos = EntidadeEquipamento.joins(:entidade_equipamento_atividades).where("entidade_equipamento_atividades.atividade_id = ? AND publicar = true", params[:id])
+    @entidade_equipamentos = EntidadeEquipamento.joins(:entidade_equipamento_atividades).where("entidade_equipamento_atividades.atividade_id = ? AND entidade_equipamento_atividades.ordem = 1 AND publicar = true", params[:id])
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
       marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividades[0].nome
@@ -64,7 +64,7 @@ class EntidadeEquipamentosController < ApplicationController
   # GET /entidade_equipamentos/evaluate
   # GET /entidade_equipamentos/evaluate.json
   def evaluate
-    @entidade_equipamentos = EntidadeEquipamento.joins(:entidade_equipamento_atividades).order('created_at DESC').where("entidade_equipamentos.publicar = false").page params[:page]
+    @entidade_equipamentos = EntidadeEquipamento.order('created_at DESC').where("entidade_equipamentos.publicar = false").page params[:page]
 
     if !admin_user
      return false

@@ -43,7 +43,15 @@
               </dd>
               <br/>
             <% end %>
-            <% if @entidade_equipamento.tipo_id == 1 %>
+            <% if @entidade_equipamento.tipo_id == 2 %>
+              <dt>
+                <strong>Tipo de Equipamento:</strong>
+              </dt>
+              <dd>
+                <%= @entidade_equipamento.tipo_equipamento.nome %>&nbsp;
+              </dd>
+              <br/>
+            <% else %>
               <% @entidade_equipamento.entidade_equipamento_atividades.each do |entidade_equipamento_atividade| %>
                 <% label = 'Principal'  if entidade_equipamento_atividade.ordem == 1 %>
                 <% label = 'Secundária' if entidade_equipamento_atividade.ordem == 2 %>
