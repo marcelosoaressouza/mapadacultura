@@ -8,8 +8,8 @@ user_admin = User.create! :email     => 'admin@localhost.org',
                           :password_confirmation => '123456789',
                           :admin => true
 
-tipo_entidade = Tipo.create! :nome => 'Pessoa Física',
-                             :descricao => 'Pessoa Física'
+tipo_pessoa_fisica = Tipo.create! :nome => 'Pessoa Física',
+                                  :descricao => 'Pessoa Física'
 
 tipo_equipamento = Tipo.create! :nome => 'Equipamento',
                                 :descricao => 'Equipamento'

@@ -1,17 +1,23 @@
 # encoding: utf-8
 
 class EntidadeEquipamento < ActiveRecord::Base 
-  attr_accessible :cep, :cidade, :contato, :descricao, :apresenta, :email, :logradouro, :complemento, :estado, :latitude, :longitude, :gmaps, :publicar, :nome, :site, :slug, :imagem, :tipo_equipamento_id, :tipo_id, :atividade_id, :ponto_de_cultura, :tombado, :user_id, :horario, :tipo_natureza_id
+  attr_accessible :cep, :cidade, :contato, :descricao, :apresenta, :email, :logradouro, :complemento, :estado, :latitude, :longitude, :gmaps, :publicar, :nome, :site, :slug, :imagem, :tipo_equipamento_id, :tipo_id, :ponto_de_cultura, :tombado, :user_id, :horario, :tipo_natureza_id, :entidade_equipamento_atividades_attributes
 
   belongs_to :tipo
   belongs_to :tipo_equipamento
   belongs_to :tipo_natureza
-  belongs_to :atividade
   belongs_to :user
   has_one :questionario_basico_entidade
 
   has_many :fotos,  :dependent => :destroy
   has_many :videos, :dependent => :destroy
+
+  has_many :entidade_equipamento_atividades, :dependent => :destroy,  :uniq => true, :order => "ordem ASC"
+  has_many :atividades, :through => :entidade_equipamento_atividades, :uniq => true
+
+  accepts_nested_attributes_for :entidade_equipamento_atividades,
+                                :allow_destroy => :true,
+                                :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
 #  validates :nome,        :presence => true, :length => { :minimum => 2 }
 #  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }

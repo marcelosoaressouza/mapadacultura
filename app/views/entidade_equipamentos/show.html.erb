@@ -14,7 +14,7 @@
     <li>
       <%= link_to "Vídeos", entidade_equipamento_videos_path(@entidade_equipamento) %>
     </li>
-    <% if @entidade_equipamento.tipo_id == 1 %>
+    <% if @entidade_equipamento.tipo_id != 1 %>
       <li>
         <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@entidade_equipamento) %>
       </li>
@@ -34,23 +34,25 @@
       <div class="info">
         <div class="info-details">
           <dl class="dl-horizontal">
+            <dt>
+              <strong>Natureza:</strong>
+            </dt>
+            <dd>
+              <%= @entidade_equipamento.tipo_natureza.nome if ! @entidade_equipamento.tipo_natureza.nil? %>&nbsp;
+            </dd>
+            <br/>
             <% if @entidade_equipamento.tipo_id == 1 %>
-              <dt>
-                <strong>Natureza:</strong>
-              </dt>
-              <dd>
-                <%= @entidade_equipamento.tipo_natureza.nome if ! @entidade_equipamento.tipo_natureza.nil? %>&nbsp;
-              </dd>
-              <br/>
-            <% end %>
-
-            <% if @entidade_equipamento.tipo_id == 1 %>
-              <dt>
-                <strong>Atividade:</strong>
-              </dt>
-              <dd>
-                <%= @entidade_equipamento.atividade.nome %>&nbsp;
-              </dd>
+              <% @entidade_equipamento.entidade_equipamento_atividades.each do |entidade_equipamento_atividade| %>
+                <% label = 'Principal'  if entidade_equipamento_atividade.ordem == 1 %>
+                <% label = 'Secundária' if entidade_equipamento_atividade.ordem == 2 %>
+                <% label = 'Terciária'  if entidade_equipamento_atividade.ordem == 3 %>
+                <dt>
+                  <strong>Atividade <%= label %>:</strong>
+                </dt>
+                <dd>
+                  <%= entidade_equipamento_atividade.atividade.nome if ! entidade_equipamento_atividade.atividade.nil?  %>&nbsp;
+                </dd>
+              <% end %>
             <% end %>
 
             <dt>
@@ -62,13 +64,15 @@
             <br/>
 
             <% if ! @entidade_equipamento.horario.nil? %>
-              <dt>
-                <strong>Horário de Funcionamento:</strong>
-              </dt>
-              <dd>
-                <%= @entidade_equipamento.horario %>&nbsp;
-              </dd>
-              <br/>
+              <% if @entidade_equipamento.horario.size > 1 %>
+                <dt>
+                  <strong>Horário de Funcionamento:</strong>
+                </dt>
+                <dd>
+                  <%= @entidade_equipamento.horario %>&nbsp;
+                </dd>
+                <br/>
+              <% end %>
             <% end %>
 
             <dt>

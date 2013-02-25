@@ -1,68 +1,65 @@
 <% content_for :scripts do %>
   <script type="text/javascript">
     $(document).ready(function() {
-
       $('#entidade_equipamento_tipo_id').on('change', function() {
         if ($(this).val() == 1)
         {
           $('#tipo_equipamento').hide();
-          $('#atividade').show();
+          $('.control-group.atividade').show();
           $('#tombado').hide();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").show();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide().prop('disabled', true);
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").show().prop('disabled', false);
         }
         else
         {
           if ($(this).val() == 2)
           {
-            $('#atividade').hide();
+            $('.control-group.atividade').hide();
             $('#tombado').show();
           }
           else
           {
-            $('#atividade').show();
+            $('.control-group.atividade').show();
             $('#tombado').hide();
           }
 
           $('#tipo_equipamento').show();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").show();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").show().prop('disabled', false);
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide().prop('disabled', true);
         }
       });
 
       <% if params[:action] == 'new' %>
+        $('#entidade_equipamento_tipo_id').val('1');
         $('#tipo_equipamento').hide();
         $('#tombado').hide();
-        $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide();
+        $('.control-group.atividade').show();
+        $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide().prop('disabled', true);
       <% end %>
 
       <% if params[:action] == 'edit' || params[:action] == 'create' || params[:action] == 'update' %>
         $('#tipo').hide();
-        $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").remove();
 
-        <% if @entidade_equipamento.tipo_id == 1 %>
-          $('#tipo_equipamento').hide();
-          $('#atividade').show();
-          $('#tombado').hide();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").show();
-        <$ else %>
-          <% if @entidade_equipamento.tipo_id == 2 %>
-            $('#atividade').hide();
-            $('#tombado').show();
-          <% else %>
-            $('#atividade').show();
-            $('#tombado').hide();
-          <% end %>
-
+        <% if @entidade_equipamento.tipo_id == 2 %>
+          $('.control-group.atividade').hide();
+          $('#tombado').show();
           $('#tipo_equipamento').show();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").show();
-          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='4'], [value='5'], [value='6'], [value='7'], [value='8']").hide().prop('disabled', true);
+        <% else %>
+          $('#tipo_equipamento').hide();
+          $('.control-group.atividade').show();
+          $('#tombado').hide();
+          $('#entidade_equipamento_tipo_natureza_id').find("[value='1'], [value='2'], [value='3']").hide().prop('disabled', true);
         <% end %>
-
       <% end %>
     });
   </script>
+<% end %>
+
+<% if params[:action] != 'edit' %>
+  <% if ! @entidade_equipamento.errors.any? %>
+    <% @entidade_equipamento.entidade_equipamento_atividades.build %>
+  <% end %>
 <% end %>
 
 <% if @entidade_equipamento.errors.any? %>
@@ -83,7 +80,7 @@
   <div class="control-group", id="tipo">
     <%= f.label :tipo_id, 'Tipo', :class => 'control-label' %>
     <div class="controls">
-      <%= f.select( :tipo_id, @tipos.collect { |l| [l.nome, l.id] } ) %>
+      <%= f.select( :tipo_id, @tipos.collect { |l| [l.nome, l.id] }, {:autocomplete => 'off'} ) %>
     </div>
   </div>
 <% end %>
@@ -95,12 +92,57 @@
   </div>
 </div>
 
-<div class="control-group" id="atividade">
-  <%= f.label :atividade_id, 'Atividade Principal', :class => 'control-label' %>
+<div class="control-group" id="tipo_equipamento">
+  <%= f.label :tipo_equipamento_id, 'Tipo de Equipamento', :class => 'control-label' %>
   <div class="controls">
-    <%= f.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+    <%= f.select( :tipo_equipamento_id, @tipo_equipamentos.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
   </div>
 </div>
+
+<% if params[:action] == 'new' %>
+  <%= f.fields_for :entidade_equipamento_atividades do |c| %>
+    <div class="control-group atividade">
+      <%= c.label :atividade_id, 'Atividade Principal', :class => 'control-label' %>
+      <div class="controls">
+        <%= c.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+        <%= c.hidden_field :ordem, :value => 1 %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :entidade_equipamento_atividades do |c| %>
+    <div class="control-group atividade">
+      <%= c.label :atividade_id, 'Atividade Secundária', :class => 'control-label' %>
+      <div class="controls">
+        <%= c.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+        <%= c.hidden_field :ordem, :value => 2 %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :entidade_equipamento_atividades do |c| %>
+    <div class="control-group atividade">
+      <%= c.label :atividade_id, 'Atividade Terciária', :class => 'control-label' %>
+      <div class="controls">
+        <%= c.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+        <%= c.hidden_field :ordem, :value => 3 %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= f.fields_for :entidade_equipamento_atividades do |c| %>
+    <div class="control-group atividade">
+      <% label = 'Atividade Principal'  if c.object.ordem == 1 %>
+      <% label = 'Atividade Secundária' if c.object.ordem == 2 %>
+      <% label = 'Atividade Terciária'  if c.object.ordem == 3 %>
+      <%= c.label :atividade_id, label, :class => 'control-label' %>
+      <div class="controls">
+        <%= c.select( :atividade_id, @atividades.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 
 <div class="control-group" id="ponto_de_cultura">
   <%= f.label :ponto_de_cultura, 'Ponto de Cultura', :class => 'control-label' %>
@@ -246,13 +288,6 @@
   </div>
 </div>
 <% end %>
-
-<div class="control-group" id="tipo_equipamento">
-  <%= f.label :tipo_equipamento_id, 'Tipo de Equipamento', :class => 'control-label' %>
-  <div class="controls">
-    <%= f.select( :tipo_equipamento_id, @tipo_equipamentos.collect { |l| [l.nome, l.id] }, {:include_blank => 'Selecione'}  ) %>
-  </div>
-</div>
 
 <div class="control-group">
   <%= f.label :imagem, 'Imagem', :class => 'control-label' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222185311) do
+ActiveRecord::Schema.define(:version => 20130225165300) do
 
   create_table "atividades", :force => true do |t|
     t.string   "nome"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(:version => 20130222185311) do
 
   add_index "cidades", ["estado_id"], :name => "index_cidades_on_estado_id"
 
+  create_table "entidade_equipamento_atividades", :force => true do |t|
+    t.integer  "ordem"
+    t.integer  "entidade_equipamento_id"
+    t.integer  "atividade_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "entidade_equipamento_atividades", ["atividade_id"], :name => "atividade"
+  add_index "entidade_equipamento_atividades", ["entidade_equipamento_id"], :name => "entidade"
+
   create_table "entidade_equipamentos", :force => true do |t|
     t.string   "nome"
     t.string   "slug"
@@ -56,7 +67,6 @@ ActiveRecord::Schema.define(:version => 20130222185311) do
     t.integer  "tipo_id"
     t.integer  "tipo_equipamento_id"
     t.integer  "tipo_natureza_id"
-    t.integer  "atividade_id"
     t.boolean  "ponto_de_cultura",    :default => false, :null => false
     t.boolean  "tombado",             :default => false, :null => false
     t.integer  "user_id"
@@ -68,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20130222185311) do
     t.datetime "imagem_updated_at"
   end
 
-  add_index "entidade_equipamentos", ["atividade_id"], :name => "index_entidade_equipamentos_on_atividade_id"
   add_index "entidade_equipamentos", ["tipo_equipamento_id"], :name => "index_entidade_equipamentos_on_tipo_equipamento_id"
   add_index "entidade_equipamentos", ["tipo_id"], :name => "index_entidade_equipamentos_on_tipo_id"
   add_index "entidade_equipamentos", ["tipo_natureza_id"], :name => "index_entidade_equipamentos_on_tipo_natureza_id"

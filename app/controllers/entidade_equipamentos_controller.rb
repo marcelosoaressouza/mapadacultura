@@ -19,11 +19,11 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def atividade
-    @entidade_equipamentos = EntidadeEquipamento.where("atividade_id = ? AND publicar = true", params[:id])
+    @entidade_equipamentos = EntidadeEquipamento.joins(:entidade_equipamento_atividades).where("entidade_equipamento_atividades.atividade_id = ? AND publicar = true", params[:id])
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
-      marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividade.nome
-      marker.picture({ :picture => "#{entidade_equipamento.atividade.imagem.url}", :width =>  '24', :height => '24' })
+      marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividades[0].nome
+      marker.picture({ :picture => "#{entidade_equipamento.atividades[0].imagem.url}", :width =>  '24', :height => '24' })
       marker.json({:id => entidade_equipamento.id})
     end
 
@@ -42,10 +42,10 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def entidades
-    @entidade_equipamentos = EntidadeEquipamento.order('created_at DESC').where("entidade_equipamentos.tipo_id = 1").page params[:page]
+    @entidade_equipamentos = EntidadeEquipamento.order('created_at DESC').where("entidade_equipamentos.tipo_id <> 2").page params[:page]
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @entidade_equipamentos }
     end
   end
@@ -64,7 +64,7 @@ class EntidadeEquipamentosController < ApplicationController
   # GET /entidade_equipamentos/evaluate
   # GET /entidade_equipamentos/evaluate.json
   def evaluate
-    @entidade_equipamentos = EntidadeEquipamento.order('created_at DESC').where("entidade_equipamentos.publicar = false").page params[:page]
+    @entidade_equipamentos = EntidadeEquipamento.joins(:entidade_equipamento_atividades).order('created_at DESC').where("entidade_equipamentos.publicar = false").page params[:page]
 
     if !admin_user
      return false
@@ -77,7 +77,7 @@ class EntidadeEquipamentosController < ApplicationController
   end
 
   def apresenta
-    @entidade_equipamento = EntidadeEquipamento.find(params[:id])
+    @entidade_equipamento = EntidadeEquipamento.joins(:entidade_equipamento_atividades).find(params[:id])
 
     respond_to do |format|
       format.html

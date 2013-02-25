@@ -21,7 +21,6 @@ class CreateEntidadeEquipamentos < ActiveRecord::Migration
       t.references :tipo
       t.references :tipo_equipamento
       t.references :tipo_natureza
-      t.references :atividade
       t.boolean :ponto_de_cultura,  :null => false, :default => false
       t.boolean :tombado,           :null => false, :default => false
 
@@ -32,7 +31,6 @@ class CreateEntidadeEquipamentos < ActiveRecord::Migration
     add_index :entidade_equipamentos, :tipo_id
     add_index :entidade_equipamentos, :tipo_equipamento_id
     add_index :entidade_equipamentos, :tipo_natureza_id
-    add_index :entidade_equipamentos, :atividade_id
     add_index :entidade_equipamentos, :user_id
   end
 end

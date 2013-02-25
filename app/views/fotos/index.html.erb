@@ -14,7 +14,7 @@
     <li>
       <%= link_to "Vídeos", entidade_equipamento_videos_path(@dados) %>
     </li>
-    <% if @dados.tipo_id == 1 %>
+    <% if @dados.tipo_id != 2 %>
       <li>
         <%= link_to "Saiba Mais", entidade_equipamento_questionario_basico_entidades_path(@dados) %>
       </li>
