@@ -19,7 +19,7 @@
               <% @atividades.each do |atividade| %>
               <li class="tipo">
                 <%= check_box(atividade.nome, atividade.id, :class => 'checkbox-atividade', :onclick => 'CarregarAtividades(this.id)' ) %>
-                <%= truncate(atividade.nome, :length => 21, :omission => '...') %>
+                <%= truncate(atividade.nome, :length => 18, :omission => '...') %>
                 <%= image_tag atividade.imagem.url(:thumb), :width => '24', :height => '24', :style => 'float:right', :alt => atividade.nome, :title => atividade.nome %>
               </li>
               <% end %>
@@ -42,7 +42,7 @@
               <% @tipo_equipamentos.each do |tipo_equipamento| %>
               <li class="tipo">
                 <%= check_box(tipo_equipamento.nome, tipo_equipamento.id, :class => 'checkbox-tipo', :onclick => 'CarregarTipoEquipamentos(this.id)' ) %>
-                <%= truncate(tipo_equipamento.nome, :length => 21, :omission => '...') %>
+                <%= truncate(tipo_equipamento.nome, :length => 18, :omission => '...') %>
                 <%= image_tag tipo_equipamento.imagem.url(:thumb), :width => '24', :height => '24', :style => 'float:right', :alt => tipo_equipamento.nome, :title => tipo_equipamento.nome %>
               </li>
               <% end %>

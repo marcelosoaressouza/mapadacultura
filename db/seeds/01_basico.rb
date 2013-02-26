@@ -77,6 +77,18 @@ atividade_meio_ambiente = Atividade.create! :nome => 'Meio Ambiente e Cultura',
                                             :descricao => 'Meio Ambiente e Cultura',
                                             :imagem => File.open('db/imagens/Atividade_Meio_Ambiente.png')
 
+atividade_software_livre = Atividade.create! :nome => 'Software Livre',
+                                             :descricao => 'Software Livre',
+                                             :imagem => File.open('db/imagens/Atividade_Software_Livre.png')
+
+atividade_radio = Atividade.create! :nome => 'Rádio',
+                                    :descricao => 'Rádio',
+                                    :imagem => File.open('db/imagens/Atividade_Radio.png')
+
+atividade_tv = Atividade.create! :nome => 'TV',
+                                 :descricao => 'TV',
+                                 :imagem => File.open('db/imagens/Atividade_TV.png')
+
 tipo_equipamento_teatro = TipoEquipamento.create! :nome => 'Teatro',
                                                   :descricao => 'Teatro',
                                                   :imagem    => File.open('db/imagens/Atividade_Teatro.png')
@@ -109,3 +121,7 @@ tipo_equipamento_centrosesportivos = TipoEquipamento.create! :nome => 'Centros E
 tipo_equipamento_auditorios = TipoEquipamento.create! :nome => 'Auditórios e Salões Comunitários',
                                                       :descricao => 'Auditórios e Salões Comunitários',
                                                       :imagem    => File.open('db/imagens/Tipo_Equipamento_Auditorios.png')
+
+tipo_referencia_cultural = TipoEquipamento.create! :nome => 'Refêrencia Cultural para sua Comunidade',
+                                                   :descricao => 'Refêrencia Cultural para sua Comunidade',
+                                                   :imagem    => File.open('db/imagens/Tipo_Equipamento_Referencia.png')

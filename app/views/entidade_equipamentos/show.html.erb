@@ -156,7 +156,7 @@
               <strong>Localização no Mapa:</strong>
             </dt>
             <dd>
-              <%= gmaps4rails(@map) %>
+              <%= gmaps("markers" => {"data" => @map}, "map_options" =>  { :provider => "openlayers" }) %>
             </dd>
           </dl>
         </div>

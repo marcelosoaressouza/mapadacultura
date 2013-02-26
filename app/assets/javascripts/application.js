@@ -75,8 +75,8 @@ $(document).ready(function() {
   $("#image-box").fancybox();
 
   $("#video-box").fancybox({
-    'width'         : '640',
-    'height'        : '480',
+    'width'         : '400',
+    'height'        : '300',
     'closeBtn'      : true,
     'autoScale'     : false,
     'transitionIn'  : 'none',
