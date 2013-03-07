@@ -49,6 +49,8 @@
             <% @videos.each do |video| %>
              <li>
               <%= link_to (image_tag video.video.url(:thumb), :alt => video.nome, :title => video.nome, :width => '150'), entidade_equipamento_video_view_path(@dados, video), :id => 'video-box', :class => 'popover-image', 'data-content' => video.nome, 'data-placement' => 'top' %></td>
+              <%= link_to t('Baixar Original', :default => 'Baixar Original'), video.video.url(:original), :class => 'btn btn-mini btn-success' %>
+
               <% if user_signed_in? %>
                 <% if (current_user.id == @dados.user_id || current_user.admin?) %>
                   <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_video_path(@dados, video), :class => 'btn btn-mini' %>

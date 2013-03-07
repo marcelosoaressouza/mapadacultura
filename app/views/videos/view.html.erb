@@ -2,14 +2,7 @@
 <%= javascript_include_tag "application" %>
 
 <center>
-    <div id="container">Carregando o Player...</div>
-
-    <script type="text/javascript">
-      jwplayer("container").setup({
-        flashplayer: "/assets/jwplayer/jwplayer.flash.swf",
-        file: "<%= @video.video.url(:medium) %>",
-        width: 360,
-        height: 240
-      });
-    </script>
+  <video id="<%= @video.nome %>" class="video-js vjs-default-skin" controls preload="auto" width="360" height="240" poster="<%= @video.video.url(:thumb) %>" data-setup="{}">
+    <source src="<%= @video.video.url(:medium) %>" type="video/ogg">
+  </video>
 </center>
