@@ -20,14 +20,14 @@ tipo_grupo_formalizado = Tipo.create! :nome => 'Grupo Formalizado',
 tipo_grupo_nao_formalizado = Tipo.create! :nome => 'Grupo Não Formalizado',
                                           :descricao => 'Grupo Não Formalizado'
 
-tipo_natureza = TipoNatureza.create! :nome => 'Privado Sem Fins Lucrativos'
-tipo_natureza = TipoNatureza.create! :nome => 'Privado Com Fins Lucrativos'
-tipo_natureza = TipoNatureza.create! :nome => 'Público'
-tipo_natureza = TipoNatureza.create! :nome => 'Artista'
-tipo_natureza = TipoNatureza.create! :nome => 'Gestor Público'
-tipo_natureza = TipoNatureza.create! :nome => 'Trabalhador (Outros)'
-tipo_natureza = TipoNatureza.create! :nome => 'Pesquisador'
-tipo_natureza = TipoNatureza.create! :nome => 'Consultor'
+tipo_natureza_privado_sem_fins_lucrativos = TipoNatureza.create! :nome => 'Privado Sem Fins Lucrativos'
+tipo_natureza_privado_com_fins_lucrativos = TipoNatureza.create! :nome => 'Privado Com Fins Lucrativos'
+tipo_natureza_publico = TipoNatureza.create! :nome => 'Público'
+tipo_natureza_artista = TipoNatureza.create! :nome => 'Artista'
+tipo_natureza_gestor_publico = TipoNatureza.create! :nome => 'Gestor Público'
+tipo_natureza_trabalhador = TipoNatureza.create! :nome => 'Trabalhador (Outros)'
+tipo_natureza_pesquisador = TipoNatureza.create! :nome => 'Pesquisador'
+tipo_natureza_consultor   = TipoNatureza.create! :nome => 'Consultor'
 
 atividade_hip_hop = Atividade.create! :nome => 'Hip-Hop',
                                       :descricao => 'Hip-Hop',
@@ -112,7 +112,6 @@ tipo_equipamento_show = TipoEquipamento.create! :nome => 'Show e Apresentações
 tipo_equipamento_espacocultural = TipoEquipamento.create! :nome => 'Espaço Cultural',
                                                           :descricao => 'Espaço Cultural',
                                                           :imagem    => File.open('db/imagens/Tipo_Equipamento_EspacoCultural.png')
-
 
 tipo_equipamento_centrosesportivos = TipoEquipamento.create! :nome => 'Centros Esportivos',
                                                              :descricao => 'Centros Esportivos',

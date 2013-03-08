@@ -9,7 +9,7 @@ class Atividade < ActiveRecord::Base
   has_attached_file :imagem,
                     :url => "/system/atividades/images/:id/:basename_:style.:extension",
                     :path => ":rails_root/public/system/atividades/images/:id/:basename_:style.:extension",
-                    :styles => { :medium => "64x64>", :thumb => "24x24>" }
+                    :styles => { :medium => "64x64>", :thumb => "32x32>" }
 
   extend FriendlyId
   friendly_id :nome, use: :slugged

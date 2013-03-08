@@ -179,7 +179,7 @@
 <div class="control-group">
   <%= f.label :descricao, 'Descrição', :class => 'control-label' %>
   <div class="controls">
-    <%= f.text_field :descricao, :class => 'span8', :size => '64', :maxlength => '254' %>
+    <%= f.text_area :descricao, :class => 'span8', :cols => 32, :rows => 4, :maxlength => '1024' %>
     <div class="tip">
       Descrição Resumida da Entidade/Equipamento Cultural
     </div>
