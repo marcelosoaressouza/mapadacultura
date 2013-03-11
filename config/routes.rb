@@ -1,5 +1,9 @@
 Mapadacultura::Application.routes.draw do
   devise_for :users
+    as :user do
+      get 'users/alterar' => 'devise/registrations#edit', :as => 'edit_user_registration'
+      put 'users' => 'devise/registrations#update', :as => 'user_registration'   
+    end
 
   resources :entidade_equipamentos do
     resources :questionario_basico_entidades, :path => 'questionario'

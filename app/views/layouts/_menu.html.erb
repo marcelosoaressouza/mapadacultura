@@ -21,28 +21,31 @@
   </li>
 
   <% if user_signed_in? %>
-    <% if current_user.admin? %>
       <li>
         <li class="dropdown">
           <a id="configurar-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/Purple-Option.png" alt="Configurar" title="Configurar"/></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="configurar-drop">
-          <li>
-          <li>
-            <a tabindex="-1" href="/tipo_equipamentos">Tipos Equipamento</a>
-          </li>
-          <li>
-            <a tabindex="-1" href="/tipo_naturezas">Tipos de Naturezas</a>
-          </li>
-          <li>
-            <a tabindex="-1" href="/atividades">Atividades</a>
-          </li>
-          <li>
-            <a tabindex="-1" href="/users">Usuários</a>
-          </li>
-        </ul>
+            <li>
+              <li>
+                <a tabindex="-1" href="/users/edit">Alterar Senha</a>
+              </li>
+              <% if current_user.admin? %>
+              <li>
+                <a tabindex="-1" href="/tipo_equipamentos">Tipos Equipamento</a>
+              </li>
+              <li>
+                <a tabindex="-1" href="/tipo_naturezas">Tipos de Naturezas</a>
+              </li>
+              <li>
+                <a tabindex="-1" href="/atividades">Atividades</a>
+              </li>
+              <li>
+                <a tabindex="-1" href="/users">Usuários</a>
+              </li>
+              <% end %>
+          </ul>
         </li>
       </li>
-    <% end %>
 
     <li class="login" id="logout">
       <%= link_to image_tag("/assets/Red-Option.png", :alt => "Deslogar", :title => "Deslogar") + " (" + current_user.firstname + ")", destroy_user_session_path, :method => :delete %>
