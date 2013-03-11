@@ -9,7 +9,7 @@
       <%= link_to "Apresentação (Vídeo)", apresenta_entidade_equipamentos_path(@dados) %>
     </li>
     <li>
-      <%= link_to "Fotos", entidade_equipamento_videos_path(@dados) %>
+      <%= link_to "Fotos", entidade_equipamento_fotos_path(@dados) %>
     </li>
     <li class="active">
       <%= link_to "Vídeos", entidade_equipamento_videos_path(@dados) %>
@@ -33,7 +33,7 @@
       <% if @videos.empty? %>
       <center>
         <br/>
-        <h3> Nenhum Vídeo encontrado
+        <h3> Nenhum Vídeo Encontrado.
         <br/>
         <% if user_signed_in? %>
           <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>

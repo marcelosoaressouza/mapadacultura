@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Video < ActiveRecord::Base
   attr_accessible :descricao, :nome, :publicar, :slug, :video, :entidade_equipamento_id, :user_id
 

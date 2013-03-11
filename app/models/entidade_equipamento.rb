@@ -19,17 +19,17 @@ class EntidadeEquipamento < ActiveRecord::Base
                                 :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-#  validates :nome,        :presence => true, :length => { :minimum => 2 }
-#  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
-#  validates :contato,     :presence => true
-#  validates :descricao,   :presence => true
-#  validates :logradouro,  :presence => true, :length => { :minimum => 4 }
-#  validates :estado,      :presence => true
-#  validates :cidade,      :presence => true
-#  validates :imagem,      :presence => true
-#  validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
+  validates :nome,        :presence => true, :length => { :minimum => 2 }
+  validates :cep,         :presence => true, :length => { :minimum => 8, :maximum => 8 }
+  validates :contato,     :presence => true
+  validates :descricao,   :presence => true
+  validates :logradouro,  :presence => true, :length => { :minimum => 4 }
+  validates :estado,      :presence => true
+  validates :cidade,      :presence => true
+  validates :imagem,      :presence => true
+  validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
 
-  acts_as_gmappable :process_geocoding => false
+  acts_as_gmappable :process_geocoding => true
 
   def gmaps4rails_address
     "#{self.logradouro}, #{self.cep}, #{self.cidade}, #{self.estado}, Brasil"
@@ -40,7 +40,7 @@ class EntidadeEquipamento < ActiveRecord::Base
       <div class=\"infowindow\">
         <div class=\"infowindow-titulo\">
           <h3>#{self.nome[0..64]}</h3>
-          <p>#{self.descricao.truncate(512)}</p>
+          <p>#{self.descricao.truncate(256)}</p>
           <br/>
           <p><b>Saiba Mais: </b><a href=\"/entidade_equipamentos/#{self.slug}\" target=\"_blank\">#{self.nome.truncate(42)}</a></p>
         </div>

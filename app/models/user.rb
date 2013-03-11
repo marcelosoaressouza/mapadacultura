@@ -3,8 +3,8 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :cpf, :firstname, :lastname, :admin
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates :cpf, :presence => true,
             :uniqueness => true

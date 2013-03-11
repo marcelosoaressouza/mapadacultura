@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :tipo_equipamentos
   def tipo_equipamentos
-    @tipo_equipamentos = TipoEquipamento.all
+    @tipo_equipamentos = TipoEquipamento.order('nome ASC').all
   end
 
   before_filter :atividades
   def atividades
-    @atividades = Atividade.all
+    @atividades = Atividade.order('nome ASC').all
   end
 
   def owner_verify(model, url)

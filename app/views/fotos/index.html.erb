@@ -33,7 +33,7 @@
       <% if @fotos.empty? %>
       <center>
         <br/>
-        <h3> Nenhuma Foto encontrada
+        <h3> Nenhuma Foto Encontrada.
         <br/>
         <% if user_signed_in? %>
           <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>

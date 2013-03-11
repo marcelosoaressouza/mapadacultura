@@ -101,7 +101,7 @@
               <strong>Site:</strong>
             </dt>
             <dd>
-              <%= link_to @entidade_equipamento.site, "http://#{@entidade_equipamento.site}".gsub!(/\s+/, ""), :target => "_blank" %>
+              <%= link_to @entidade_equipamento.site, "http://#{@entidade_equipamento.site}".gsub!(/\s+/, ""), :target => "_blank" %>&nbsp;
             </dd>
             <dt>
               <strong>Logradouro:</strong>
@@ -140,7 +140,7 @@
               <%= @entidade_equipamento.longitude %>&nbsp;
             </dd>
             <dt>
-              <strong>Cadastrante/Responsável:</strong>
+              <strong>Responsável Dados:</strong>
             </dt>
             <dd>
               <%= @entidade_equipamento.user.firstname + ' ' + @entidade_equipamento.user.lastname %>&nbsp;

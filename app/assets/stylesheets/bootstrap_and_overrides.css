@@ -229,3 +229,6 @@ h3 {
   background: #ADD9DD;
 }
 
+button.btn, input.btn[type="submit"] {
+  text-transform:capitalize;
+}
