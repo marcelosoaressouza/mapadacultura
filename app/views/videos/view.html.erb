@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag "application", :media => "all" %>
 <%= javascript_include_tag "application" %>
 
-<center>
+<div style="text-align: center;">
   <video id="<%= @video.nome %>" class="video-js vjs-default-skin" controls preload="auto" width="360" height="240" poster="<%= @video.video.url(:thumb) %>" data-setup="{}">
     <source src="<%= @video.video.url(:medium) %>" type="video/ogg">
   </video>
-</center>
+</div>

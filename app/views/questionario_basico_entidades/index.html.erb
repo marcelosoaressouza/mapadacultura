@@ -22,18 +22,18 @@
   <div class="tab-content">
     <div class="active tab-pane" id="list">
       <% if @questionario_basico_entidades.empty? %>
-      <center>
         <br/>
-        <h3> Nenhuma Informação Registrada.
-        <br/>
-        <% if user_signed_in? %>
-          <% if  (current_user.id == @entidade_equipamento.user_id) || (current_user.admin?) %>
-            <%= link_to "Responder Questionário?", new_entidade_equipamento_questionario_basico_entidade_path if user_signed_in?%> </h3>
+        <h3 style="text-align: center;">
+          Nenhuma Informação Registrada.
+          <br/>
+          <% if user_signed_in? %>
+            <% if  (current_user.id == @entidade_equipamento.user_id) || (current_user.admin?) %>
+              <%= link_to "Responder Questionário?", new_entidade_equipamento_questionario_basico_entidade_path if user_signed_in?%>
+            <% end %>
           <% end %>
-        <% end %>
+        </h3>
         <br/>
         </br>
-      </center>
       <% else %>
 
       <% @questionario_basico_entidades.each do |questionario_basico_entidade_equipamento| %>

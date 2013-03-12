@@ -24,15 +24,13 @@
   <div class="tab-content">
     <div class="active tab-pane">
       <div class="info" style="min-height: 200px;">
-        <div class="info-details" style="min-width: 100%;">
-          <center>
-              <% if @entidade_equipamento.apresenta.respond_to?(:size) %>
-                <%= '<h3>Nenhum Vídeo de Apresentação Encontrado.</h3>'.html_safe if @entidade_equipamento.apresenta.size == 0 %>
-              <% else %>
-                <%= '<h3>Nenhum Vídeo de Apresentação Encontrado.</h3>'.html_safe %>
-              <% end %>
-            <%= auto_html(@entidade_equipamento.apresenta) { youtube } %>
-          </center>
+        <div class="info-details" style="min-width: 100%; text-align: center;">
+            <% if @entidade_equipamento.apresenta.respond_to?(:size) %>
+              <%= '<h3>Nenhum Vídeo de Apresentação Encontrado.</h3>'.html_safe if @entidade_equipamento.apresenta.size == 0 %>
+            <% else %>
+              <%= '<h3>Nenhum Vídeo de Apresentação Encontrado.</h3>'.html_safe %>
+            <% end %>
+          <%= auto_html(@entidade_equipamento.apresenta) { youtube } %>
         </div>
       </div>
     </div>

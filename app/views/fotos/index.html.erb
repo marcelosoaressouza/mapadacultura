@@ -31,18 +31,18 @@
       <% end %>
 
       <% if @fotos.empty? %>
-      <center>
         <br/>
-        <h3> Nenhuma Foto Encontrada.
-        <br/>
-        <% if user_signed_in? %>
-          <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>
-            <%= link_to "Adicionar nova Foto?", new_entidade_equipamento_foto_path if user_signed_in?%> </h3>
+        <h3 style="text-align: center;"> 
+          Nenhuma Foto Encontrada.
+          <br/>
+          <% if user_signed_in? %>
+            <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>
+              <%= link_to "Adicionar nova Foto?", new_entidade_equipamento_foto_path if user_signed_in?%> 
+            <% end %>
           <% end %>
-        <% end %>
+        </h3>
         <br/>
         </br>
-      </center>
       <% else %>
         <div id="gallery">
           <ul id="grid">

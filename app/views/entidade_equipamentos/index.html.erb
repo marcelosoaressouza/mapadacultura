@@ -21,11 +21,11 @@
 <div class="tab-content">
   <div class="active tab-pane">
     <% if @entidade_equipamentos.empty? %>
-    <center>
-      <h3> Nenhum Registro Encontrado
-      <br/>
-      <%= link_to "Adicionar Nova Entidade ou Equipamento Cultural?", new_entidade_equipamento_path %> </h3>
-    </center>
+      <h3 style="text-align: center;">
+        Nenhum Registro Encontrado.
+        <br/>
+        <%= link_to "Adicionar Nova Entidade ou Equipamento Cultural?", new_entidade_equipamento_path %>
+      </h3>
     <% else %>
 
     <div class="search">

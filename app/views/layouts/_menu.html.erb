@@ -1,15 +1,14 @@
-<ul class="nav">
+
+  <ul class="nav"> <!-- nav -->
     <li>
       <%= link_to image_tag("/assets/Green-Option.png", :alt => "Sobre o Mapa da Cultura"), '/home/sobre', :id => 'popover-sobre', 'data-content' => 'Sobre o Mapa da Cultura', 'data-placement' => 'bottom'  %>
     </li>
 
-  <li>
     <li class="dropdown">
       <a id="entidade-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown" data-content="Entidades e Equipamentos Culturais" data-placement="right">
         <img src="/assets/Yellow-Option.png" alt="Entidades e Equipamentos Culturais"/>
       </a>
       <ul class="dropdown-menu" role="menu" aria-labelledby="entidade-drop">
-        <li>
         <li>
           <a tabindex="-1" href="/entidade_equipamentos/">Listar</a>
         </li>
@@ -18,14 +17,12 @@
         </li>
       </ul>
     </li>
-  </li>
 
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
       <li>
         <li class="dropdown">
           <a id="configurar-drop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><img src="/assets/Purple-Option.png" alt="Configurar" title="Configurar"/></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="configurar-drop">
-            <li>
               <li>
                 <a tabindex="-1" href="/users/edit">Alterar Senha</a>
               </li>
@@ -51,9 +48,9 @@
       <%= link_to image_tag("/assets/Red-Option.png", :alt => "Deslogar", :title => "Deslogar") + " (" + current_user.firstname + ")", destroy_user_session_path, :method => :delete %>
     </li>
 
-  <% else %>
-    <li class="login" id="login">
-      <%= link_to image_tag("/assets/Red-Option.png", :alt => "Logar"), new_user_session_path, :id => 'popover-login', 'data-content' => 'Logar no Mapa da Cultura', 'data-placement' => 'bottom' %>
-    </li>
-  <% end %>
-</ul>
+    <% else %>
+      <li class="login" id="login">
+        <%= link_to image_tag("/assets/Red-Option.png", :alt => "Logar"), new_user_session_path, :id => 'popover-login', 'data-content' => 'Logar no Mapa da Cultura', 'data-placement' => 'bottom' %>
+      </li>
+    <% end %>
+  </ul> <!-- nav -->

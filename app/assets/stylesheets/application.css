@@ -144,3 +144,9 @@ div.grid_display h2 {
   font-size: 15px;
   color: #58595b;
 }
+
+footer {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}

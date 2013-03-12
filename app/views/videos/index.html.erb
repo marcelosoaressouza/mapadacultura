@@ -31,18 +31,18 @@
       <% end %>
 
       <% if @videos.empty? %>
-      <center>
         <br/>
-        <h3> Nenhum Vídeo Encontrado.
-        <br/>
-        <% if user_signed_in? %>
-          <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>
-            <%= link_to "Adicionar novo Vídeo?", new_entidade_equipamento_video_path if user_signed_in?%> </h3>
+        <h3 style="text-align: center;">
+          Nenhum Vídeo Encontrado.
+          <br/>
+          <% if user_signed_in? %>
+            <% if  (current_user.id == @dados.user_id) || (current_user.admin?) %>
+              <%= link_to "Adicionar novo Vídeo?", new_entidade_equipamento_video_path if user_signed_in?%>
+            <% end %>
           <% end %>
-        <% end %>
+        </h3>
         <br/>
         </br>
-      </center>
       <% else %>
         <div id="gallery">
           <ul id="grid">
