@@ -1,3 +1,16 @@
 == Mapa da Cultura
 
-Ruby on Rails application for mapping spaces and cultural entities in Brazil
+O Mapa da Cultura é uma ferramenta interativa e livre, desenvolvida pela Artéria Cultura e Cidadania, em parceria com a Secretária de Cultura do Governo do Distrito Federal através do Fundo de Apoio a Cultura, que tem como objetivo dar visibilidade à produção Cultural além de produzir indicadores e diagnósticos sobre a dinâmica Cultural no Brasil
+
+A primeira versão do Mapa da Cultura foi disponibilizada pela ONG Artéria em 2008, através do projeto Cartografia da Cultura Candanga, e agora este instrumento, totalmente reformulado, traz um importante avanço: a possibilidade de auto mapeamento de Artistas, Entidades, Equipamentos, Trabalhadores(as) e Pesquisadores(as) da Cultura Brasileira.
+
+Isso significa que além das pesquisas de campo realizadas pela equipe da Artéria, Artistas, Profissionais da Cultura, Empresas e Grupos Culturais das mais diversas áreas poderão se inserir no mapa e disponilibizar registros das suas atividades. E dessa forma pretende-se divulgar a rica diversidade cultural do Brasil além de fornecer dados para melhor entendimento da sua dinâmica.
+
+Ganham com esse projeto: o respeitavel público - moradores e visitantes das mais diversas regiões que terão acesso à informações detalhadas sobre o cenário cultural dos diversos territórios e às suas especificidades; o setor cultural, que terá um sólido instrumento para identificação e divulgação de suas atividades. Além da sociedade civil, também ganha o Estado, que terá uma ferramenta eficiente para fornecer dados que irão subsidiar a elaboração de políticas públicas e ações pertinentes ao campo da cultura.
+
+O Mapa da Cultura é um Software Livre sobre a licença GPLv3, desenvolvido em Ruby on Rails com base de dados em PostgreSQL, utilizando o OpenLayers (Open Street Map).
+
+Código-Fonte do Mapa da Cultura no Gitorious
+https://gitorious.org/mapa-da-cultura
+
+Dúvidas e/ou Sugestões: contato@mapadacultura.org
