@@ -64,7 +64,24 @@
           <% if entidade_equipamento.tipo_id == 2 %>
             <td><%= image_tag entidade_equipamento.tipo_equipamento.imagem.url, :title => entidade_equipamento.tipo_equipamento.nome %></td>
           <% else %>
-            <td><%= image_tag entidade_equipamento.atividades[0].imagem.url, :title => entidade_equipamento.atividades[0].nome if ! entidade_equipamento.atividades[0].nil? %></td>
+            <% 
+              if ! entidade_equipamento.entidade_equipamento_atividades[0].nil?
+                if entidade_equipamento.entidade_equipamento_atividades[0].ordem == 1
+                  ordem = 0
+                end
+              end
+              if ! entidade_equipamento.entidade_equipamento_atividades[1].nil?
+                if entidade_equipamento.entidade_equipamento_atividades[1].ordem == 1
+                  ordem = 1
+                end
+              end
+              if ! entidade_equipamento.entidade_equipamento_atividades[2].nil?
+                if entidade_equipamento.entidade_equipamento_atividades[2].ordem == 1
+                  ordem = 2
+                end
+              end
+            %>
+            <td><%= image_tag entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.imagem.url, :title => entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nome if ! entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nil? %></td>
           <% end %>
           <td><%= entidade_equipamento.fotos.size %></td>
           <td><%= entidade_equipamento.videos.size %></td>

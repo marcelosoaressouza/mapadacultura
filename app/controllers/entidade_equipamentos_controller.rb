@@ -23,7 +23,7 @@ class EntidadeEquipamentosController < ApplicationController
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
       marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividades[0].nome
-      marker.picture({ :picture => "#{entidade_equipamento.atividades[0].imagem.url}", :width =>  '32', :height => '32' })
+      marker.picture({ :picture => "#{entidade_equipamento.entidade_equipamento_atividades[0].atividade.imagem.url}", :width =>  '32', :height => '32' })
       marker.json({:id => entidade_equipamento.id})
     end
 
