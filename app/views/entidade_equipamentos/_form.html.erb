@@ -1,3 +1,6 @@
+<link href="/openlayers/css/openlayers.examples.style.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/openlayers/css/openlayers.theme.style.css" media="all" rel="stylesheet" type="text/css" />
+
 <% content_for :scripts do %>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -54,6 +57,7 @@
         <% end %>
       <% end %>
     });
+
   </script>
 <% end %>
 
@@ -76,6 +80,14 @@
 <% end %>
 
 <%= form_for @entidade_equipamento, :html => { :class => 'form-horizontal' } do |f| %>
+
+<% if params[:action] == 'edit' %>
+  <% content_for :scripts do %>
+    <script type="text/javascript">
+        window.onload = initMapHelper;
+    </script>
+  <% end %>
+<% end %>
 
 <% if params[:action] != 'edit' %>
   <div class="control-group", id="tipo">
@@ -231,7 +243,7 @@
   <div class="controls">
     <%= f.text_field :cep, :class => 'span2', :id => 'cep', :size => '8', :maxlength => '8' %>
     <div class="tip">
-      Sem Traços ou Pontos. Ex.: 41800001, 79810001 e etc.
+      Sem Traços ou Pontos. Ex.: 41800001, 79810001 e etc. A localização inicial no Mapa será baseado no CEP.
     </div>
   </div>
 </div>
@@ -275,11 +287,32 @@
   </div>
 </div>
 
+<div class="control-group">
+  <%= f.label :imagem, 'Imagem', :class => 'control-label' %>
+  <div class="controls">
+    <%= f.file_field :imagem %>
+    <div class="tip">
+      Uma Imagem que representa a Entidade/Equipamento Cultural.
+    </div>
+  </div>
+</div>
+
 <% if params[:action] == 'edit' %>
+<div class="control-group">
+  <%= f.label :mapa, 'Mapa', :class => 'control-label' %>
+  <div class="controls">
+    <div id="mapHelper" class="smallmap"></div>
+    <div class="tip">
+      Selecione o Ponto no Mapa e Confira a Longitude e Latitude.
+    </div>
+  </div>
+</div>
+<br/>
+
 <div class="control-group">
   <%= f.label :latitude, 'Latitude', :class => 'control-label' %>
   <div class="controls">
-    <%= f.text_field :latitude, :class => 'text_field' %>
+      <%= f.text_field :latitude, :class => 'text_field' %>
   </div>
 </div>
 
@@ -290,16 +323,6 @@
   </div>
 </div>
 <% end %>
-
-<div class="control-group">
-  <%= f.label :imagem, 'Imagem', :class => 'control-label' %>
-  <div class="controls">
-    <%= f.file_field :imagem %>
-    <div class="tip">
-      Uma Imagem que representa a Entidade/Equipamento Cultural.
-    </div>
-  </div>
-</div>
 
 <% if current_user.admin? %>
 <div class="control-group">

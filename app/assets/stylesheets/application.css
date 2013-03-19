@@ -150,3 +150,13 @@ footer {
   margin-right: auto;
   margin-left: auto;
 }
+
+.smallmap {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+
+  width: 640px;
+  height: 256px;
+  border: 1px solid #ccc;
+}

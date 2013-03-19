@@ -213,3 +213,42 @@ function CarregarTipoEntidades(id) {
     });
   }
 }
+
+var mapHelper;
+function initMapHelper() {
+  var mapHelper = new OpenLayers.Map('mapHelper');
+  var proj4326 = new OpenLayers.Projection("EPSG:4326");
+  var projmerc = new OpenLayers.Projection("EPSG:900913");
+  var layerOSM = new OpenLayers.Layer.OSM("Street mapHelper");
+
+  mapHelper.addLayers([layerOSM]);
+  mapHelper.setCenter(new OpenLayers.LonLat(document.getElementById("entidade_equipamento_longitude").value, document.getElementById("entidade_equipamento_latitude").value).transform( new OpenLayers.Projection("EPSG:4326"), mapHelper.getProjectionObject()), 10);
+
+  if (!mapHelper.getCenter()) mapHelper.zoomToMaxExtent();
+    mapHelper.events.register("mousemove", mapHelper, function(e) { 
+    var position = this.events.getMousePosition(e);
+    var lonlat = mapHelper.getLonLatFromPixel( this.events.getMousePosition(e) );
+    var lonlatTransf = lonlat.transform(mapHelper.getProjectionObject(), proj4326);
+  });
+
+  var icon = new OpenLayers.Icon('/assets/red-marker.png');   
+  var markerslayer = new OpenLayers.Layer.Markers( "Markers" );
+  var lonLatInitial = new OpenLayers.LonLat(document.getElementById("entidade_equipamento_longitude").value, document.getElementById("entidade_equipamento_latitude").value).transform( new OpenLayers.Projection("EPSG:4326"), mapHelper.getProjectionObject());
+  markerslayer.addMarker(new OpenLayers.Marker(lonLatInitial, icon));
+  mapHelper.addLayer(markerslayer);
+
+  mapHelper.events.register("click", mapHelper, function(e) {
+    var position = this.events.getMousePosition(e);
+    var lonlat = mapHelper.getLonLatFromPixel(position);
+    var lonlatTransf = lonlat.transform(mapHelper.getProjectionObject(), proj4326);
+
+    document.getElementById("entidade_equipamento_latitude").value = lonlatTransf.lat;
+    document.getElementById("entidade_equipamento_longitude").value = lonlatTransf.lon;
+
+    var lonlat = lonlatTransf.transform(proj4326, mapHelper.getProjectionObject());
+    markerslayer.clearMarkers();
+    markerslayer.addMarker(new OpenLayers.Marker(lonlat, icon));
+    mapHelper.addLayer(markerslayer);
+  });
+
+}
