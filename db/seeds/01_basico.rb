@@ -95,7 +95,7 @@ tipo_equipamento_teatro = TipoEquipamento.create! :nome => 'Teatro',
 
 tipo_equipamento_cinema = TipoEquipamento.create! :nome => 'Cinema',
                                                   :descricao => 'Cinema',
-                                                  :imagem    => File.open('db/imagens/Atividade_Audiovisual.png')
+                                                  :imagem    => File.open('db/imagens/Atividade_Producao.png')
 
 tipo_equipamento_biblioteca = TipoEquipamento.create! :nome => 'Biblioteca',
                                                       :descricao => 'Biblioteca',

@@ -32,7 +32,7 @@ class EntidadeEquipamento < ActiveRecord::Base
   acts_as_gmappable :process_geocoding => true
 
   def gmaps4rails_address
-    "#{self.logradouro}, #{self.cep}, #{self.cidade}, #{self.estado}, Brasil"
+    "#{self.cep}, #{self.cidade}, #{self.estado}, Brasil"
   end
 
   def gmaps4rails_infowindow
