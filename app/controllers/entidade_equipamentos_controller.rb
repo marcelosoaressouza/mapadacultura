@@ -22,7 +22,7 @@ class EntidadeEquipamentosController < ApplicationController
     @entidade_equipamentos = EntidadeEquipamento.joins(:entidade_equipamento_atividades).where("entidade_equipamento_atividades.atividade_id = ? AND entidade_equipamento_atividades.ordem = 1 AND publicar = true", params[:id])
 
     @map = @entidade_equipamentos.to_gmaps4rails do |entidade_equipamento, marker|
-      marker.title entidade_equipamento.nome + " - " + entidade_equipamento.atividades[0].nome
+      marker.title entidade_equipamento.nome + " - " + entidade_equipamento.entidade_equipamento_atividades[0].atividade.nome
       marker.picture({ :picture => "#{entidade_equipamento.entidade_equipamento_atividades[0].atividade.imagem.url}", :width =>  '32', :height => '32' })
       marker.json({:id => entidade_equipamento.id})
     end
