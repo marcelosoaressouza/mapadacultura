@@ -76,11 +76,13 @@ $(document).ready(function() {
 
   $("#video-box").fancybox({
     'width'         : '400',
-    'height'        : '300',
+    'height'        : '250',
     'closeBtn'      : true,
     'autoScale'     : false,
     'transitionIn'  : 'none',
     'transitionOut' : 'none',
+    'fitToView'     : false,
+    'autoSize'      : false,
     'type'          : 'iframe'
   });
 });
