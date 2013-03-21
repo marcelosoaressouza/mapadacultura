@@ -7,7 +7,7 @@
 </div>
 
 <div class="form-actions">
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.submit nil, :class => 'btn btn-primary', :disable_with => 'Enviando...' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")), tipo_naturezas_path, :class => 'btn' %>
 </div>
 <% end %>

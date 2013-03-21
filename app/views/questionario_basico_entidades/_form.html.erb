@@ -111,7 +111,7 @@
 <% end %>
 
 <div class="form-actions">
-  <%= f.submit 'Responder Questionário', :class => 'btn btn-primary' %>
+  <%= f.submit 'Responder Questionário', :class => 'btn btn-primary', :disable_with => 'Enviando...' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")), entidade_equipamento_questionario_basico_entidades_path, :class => 'btn' %>
 </div>
 <% end %>
