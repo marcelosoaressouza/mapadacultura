@@ -47,7 +47,7 @@ class EntidadeEquipamento < ActiveRecord::Base
           <p><b>Saiba Mais: </b><a href=\"/entidade_equipamentos/#{self.slug}\" target=\"_blank\">#{self.nome.truncate(42)}</a></p>
         </div>
         <div class=\"infowindow-logo\">
-          <img src=\"#{self.imagem.url}\" width=\"150\" height=\"150\"/>
+          <img src=\"#{self.imagem.url(:thumb)}\" width=\"150\" height=\"150\"/>
         </div>
       </div>
     "
