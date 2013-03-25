@@ -89,6 +89,15 @@ atividade_tv = Atividade.create! :nome => 'TV',
                                  :descricao => 'TV',
                                  :imagem => File.open('db/imagens/Atividade_TV.png')
 
+atividade_literatura = Atividade.create! :nome => 'Literatura',
+                                         :descricao => 'Literatura',
+                                         :imagem => File.open('db/imagens/Atividade_Literatura.png')
+
+
+atividade_capoeira = Atividade.create! :nome => 'Capoeira',
+                                       :descricao => 'Capoeira',
+                                       :imagem => File.open('db/imagens/Atividade_Capoeira.png')
+
 tipo_equipamento_teatro = TipoEquipamento.create! :nome => 'Teatro',
                                                   :descricao => 'Teatro',
                                                   :imagem    => File.open('db/imagens/Atividade_Teatro.png')

@@ -51,7 +51,14 @@
   margin-right: auto;
   margin-left: auto;
   min-width: 160px;
+  min-height: 160px;
   float: right;
+}
+
+.infowindow-logo img {
+  max-width: 160px;
+  max-height: 200px;
+
 }
 
 .info {
