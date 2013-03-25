@@ -101,7 +101,12 @@
               <strong>Site:</strong>
             </dt>
             <dd>
-              <%= link_to @entidade_equipamento.site, "http://#{@entidade_equipamento.site}".gsub!(/\s+/, ""), :target => "_blank" %>&nbsp;
+              <%
+                site = @entidade_equipamento.site
+                site.sub!(/https\:\/\//, '') if site.include? "https://"
+                site.sub!(/http\:\/\//, '') if site.include? "http://"
+              %>
+              <%= link_to @entidade_equipamento.site, "http://#{site}", :target => "_blank" %>&nbsp;
             </dd>
             <dt>
               <strong>Logradouro:</strong>
