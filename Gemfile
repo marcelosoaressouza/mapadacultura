@@ -5,7 +5,7 @@ end
 
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 gem 'i18n'
 
 # gem 'sqlite3'
