@@ -78,7 +78,13 @@
               end
             end
           %>
-          <td><%= image_tag entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.imagem.url, :title => entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nome if ! entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nil? %></td>
+          <td>
+            <% if entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.try(:imagem) %>
+              <%= image_tag entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.imagem.url, :title => entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nome if ! entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nil? %>
+            <% else %>
+              Não Informado
+            <% end %>
+          </td>
           <td><%= entidade_equipamento.fotos.size %></td>
           <td><%= entidade_equipamento.videos.size %></td>
           <td><strong><%= I18n.t(entidade_equipamento.publicar.to_s) if user_signed_in? %></strong></td>

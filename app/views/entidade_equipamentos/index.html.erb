@@ -62,7 +62,13 @@
           <td><%= link_to entidade_equipamento.nome, entidade_equipamento_path(entidade_equipamento) %></td>
           <td><%= entidade_equipamento.estado %></td>    
           <% if entidade_equipamento.tipo_id == 2 %>
-            <td><%= image_tag entidade_equipamento.tipo_equipamento.imagem.url(:thumb), :title => entidade_equipamento.tipo_equipamento.nome %></td>
+            <td>
+              <% if entidade_equipamento.tipo_equipamento.try(:imagem) %>
+                <%= image_tag entidade_equipamento.tipo_equipamento.imagem.url(:thumb), :title => entidade_equipamento.tipo_equipamento.nome %>
+              <% else %>
+                Não Informado
+              <% end %>
+            </td>
           <% else %>
             <% 
               if ! entidade_equipamento.entidade_equipamento_atividades[0].nil?
@@ -81,7 +87,13 @@
                 end
               end
             %>
-            <td><%= image_tag entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.imagem.url(:thumb), :title => entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nome if ! entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nil? %></td>
+            <td>
+              <% if entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.try(:imagem) %>
+                <%= image_tag entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.imagem.url(:thumb), :title => entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nome if ! entidade_equipamento.entidade_equipamento_atividades[ordem].atividade.nil? %>
+              <% else %>
+                Não Informado
+              <% end %>
+            </td>
           <% end %>
           <td><%= entidade_equipamento.fotos.size %></td>
           <td><%= entidade_equipamento.videos.size %></td>
@@ -92,7 +104,6 @@
                 <% if (current_user.admin? && entidade_equipamento.publicar == false) %>
                   <%= link_to t('.publish', :default => t("helpers.links.publish")), publish_entidade_equipamentos_path(entidade_equipamento), :class => 'btn btn-mini btn-primary' %>
                 <% end %>
-
                 <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_entidade_equipamento_path(entidade_equipamento), :class => 'btn btn-mini' %>
                 <%= link_to t('.destroy', :default => t("helpers.links.destroy")), entidade_equipamento_path(entidade_equipamento), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem Certeza?')) }, :class => 'btn btn-mini btn-danger' %>
               </td>

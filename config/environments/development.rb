@@ -6,6 +6,7 @@ Mapadacultura::Application.configure do
   config.action_mailer.smtp_settings = {
     address: "localhost",
     port: 25,
+    # openssl_verify_mode: 'none'
     # domain: "mapadacultura.org",
     # authentication: "plain",
     # user_name: "user",
