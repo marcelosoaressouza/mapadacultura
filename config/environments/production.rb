@@ -48,8 +48,18 @@ Mapadacultura::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
+
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = {:host => 'mapadacultura.org'}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "mapadacultura.org",
+    :port    => 25,
+    :enable_starttls_auto => false,
+    :openssl_verify_mode  => 'none'
+  }
 
   # Enable threaded mode
   # config.threadsafe!

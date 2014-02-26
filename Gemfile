@@ -5,7 +5,7 @@ end
 
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.17'
 gem 'i18n'
 
 # gem 'sqlite3'
@@ -43,8 +43,9 @@ gem 'friendly_id'
 gem 'kaminari'
 
 # Sunspot
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'sunspot', '2.0.0'
+gem 'sunspot_rails', '2.0.0'
+gem 'sunspot_solr', '2.0.0'
 gem 'sunspot_with_kaminari'
 
 gem 'progress_bar'
@@ -63,7 +64,7 @@ gem 'curb'
 gem 'feedzirra', '~> 0.2.0.rc2'
 
 # Geolocation
-gem 'gmaps4rails'
+gem 'gmaps4rails', '1.5.6'
 
 # Embed Content
 gem 'auto_html'
