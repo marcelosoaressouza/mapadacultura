@@ -28,8 +28,8 @@ class EntidadeEquipamento < ActiveRecord::Base
   validates :cidade,      :presence => true
   validates :imagem,      :presence => true
   validates :email,       :presence => true, :email_format => {:message => ' Formato Incorreto'}
-  # validates :latitude,    :presence => true
-  # validates :longitude,   :presence => true
+  validates :latitude,    :presence => true
+  validates :longitude,   :presence => true
 
   acts_as_gmappable :process_geocoding => true
 

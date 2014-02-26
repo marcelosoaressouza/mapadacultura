@@ -136,6 +136,8 @@ class EntidadeEquipamentosController < ApplicationController
 
     respond_to do |format|
       if @entidade_equipamento.save
+        EntidadeEquipamentoNotificacao.adicionado(@entidade_equipamento).deliver
+
         format.html { redirect_to @entidade_equipamento, notice: 'Cadastro Efetivado. Aguarde a Publicação.' }
         format.json { render json: @entidade_equipamento, status: :created, location: @entidade_equipamento }
       else
@@ -177,6 +179,8 @@ class EntidadeEquipamentosController < ApplicationController
 
     respond_to do |format|
       if @entidade_equipamento.update_attributes(params[:entidade_equipamento])
+        EntidadeEquipamentoNotificacao.publicado(@entidade_equipamento).deliver
+
         format.html { redirect_to @entidade_equipamento, notice: 'Publicado com Sucesso.' }
         format.json { head :no_content }
       else

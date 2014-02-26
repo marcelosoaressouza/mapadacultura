@@ -48,7 +48,7 @@
                 <strong>Tipo de Equipamento:</strong>
               </dt>
               <dd>
-                <%= @entidade_equipamento.tipo_equipamento.nome %>&nbsp;
+                <%= @entidade_equipamento.tipo_equipamento.nome if @entidade_equipamento.tipo_equipamento.try(:nome) %>&nbsp;
               </dd>
               <br/>
             <% else %>
