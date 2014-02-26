@@ -10,6 +10,8 @@ Ganham com esse projeto: o respeitavel público - moradores e visitantes das mai
 
 O Mapa da Cultura é um Software Livre sobre a licença GPLv3, desenvolvido em Ruby on Rails com base de dados em PostgreSQL, utilizando o OpenLayers (Open Street Map).
 
+Atualmente é mantido pelo Projeto de Cultura Digital juntaDados (https://juntadados.org)
+
 Código-Fonte do Mapa da Cultura no Gitorious
 https://gitorious.org/mapa-da-cultura
 

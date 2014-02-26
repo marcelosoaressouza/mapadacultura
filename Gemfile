@@ -52,7 +52,6 @@ gem 'progress_bar'
 gem 'acts-as-taggable-on', '~> 2.3.3'
 gem 'opinio'
 gem 'settingslogic'
-gem 'kaminari'
 gem 'validates_existence'
 
 gem 'nokogiri'
